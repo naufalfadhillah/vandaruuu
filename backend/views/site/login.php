@@ -10,7 +10,7 @@ $this->title = 'Sign In';
 
 $fieldOptions1 = [
     'options' => ['class' => 'form-group has-feedback'],
-    'inputTemplate' => "{input}<span class='glyphicon glyphicon-envelope form-control-feedback'></span>"
+    'inputTemplate' => "{input}<span class='glyphicon glyphicon-user form-control-feedback'></span>"
 ];
 
 $fieldOptions2 = [
@@ -20,11 +20,15 @@ $fieldOptions2 = [
 ?>
 
 <div class="login-box">
-    <div class="login-logo">
-        <a href="#"><b>Admin</b>LTE</a>
-    </div>
     <!-- /.login-logo -->
-    <div class="login-box-body">
+    <div class="login-box-body" style="border-radius:15px;">
+        <div class="login-logo">
+            <a href="<?php// Yii::$app->request->baseUrl ?>./../../">
+                <img src="../web/image/logo/vandaru.png" style="width: 100px; height: auto;">
+            </a>
+            
+            <h2><a href="#">VANDARU</a></h2>
+        </div>
         <p class="login-box-msg">Sign in to start your session</p>
 
         <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
@@ -45,21 +49,22 @@ $fieldOptions2 = [
             </div>
             <!-- /.col -->
             <div class="col-xs-4">
-                <?= Html::submitButton('Sign in', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
+                <?= Html::submitButton('Sign in <i class="fa fa-sign-in"></i>', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button', 'style' => 'border-radius: 8px']) ?>
             </div>
             <!-- /.col -->
         </div>
+        
 
 
         <?php ActiveForm::end(); ?>
 
-        <div class="social-auth-links text-center">
+        <!--div class="social-auth-links text-center">
             <p>- OR -</p>
             <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in
                 using Facebook</a>
             <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign
                 in using Google+</a>
-        </div>
+        </div-->
         <!-- /.social-auth-links -->
 
         <a href="#">I forgot my password</a><br>
