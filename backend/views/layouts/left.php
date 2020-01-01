@@ -5,7 +5,8 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+                <img src="../web/image/logo/avatar.png" class="img-circle" alt="User Image"/>
+                <!-- <img src="<?php //$directoryAsset ?>/image/avatar.png" class="img-circle" alt="User Image"/> -->
             </div>
             <div class="pull-left info">
                 <p>Vandaru</p>
@@ -31,6 +32,7 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
+                    ['label' => 'Users', 'icon' => 'users', 'url' => ['/user']],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
