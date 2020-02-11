@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model common\models\Galeri */
 
 $this->title = 'Update Galeri: ' . $model->galeri_id;
-$this->params['breadcrumbs'][] = ['label' => 'Galeris', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Galeri', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->galeri_id, 'url' => ['view', 'id' => $model->galeri_id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

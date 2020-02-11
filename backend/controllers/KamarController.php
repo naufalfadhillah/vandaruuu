@@ -8,6 +8,11 @@ use common\models\KamarSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use common\models\FotoKamar;
+use common\models\FotoKamarSearch;
+use yii\web\UploadedFile;
+use yii\data\ActiveDataProvider;
 
 /**
  * KamarController implements the CRUD actions for Kamar model.
@@ -20,6 +25,15 @@ class KamarController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -52,8 +66,13 @@ class KamarController extends Controller
      */
     public function actionView($id)
     {
+        $searchModel = new FotoKamarSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query->andWhere(['foto_id_kamar' => $id]);
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -66,10 +85,38 @@ class KamarController extends Controller
     {
         $model = new Kamar();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //     return $this->redirect(['view', 'id' => $model->kamar_id]);
+        // }
+        if ($model->load(Yii::$app->request->post())) {
+            $model->created_by = Yii::$app->user->identity->username;
+		    $model->created_date = date("Y-m-d");
+
+            $model->save();
+   
+            if ($model->validate()) {
+                if (UploadedFile::getInstances($model, 'filesaver') != null) {
+                    $names = UploadedFile::getInstances($model, 'filesaver');
+                    $kamar = $model->kamar_id;
+                    $creator_name = Yii::$app->user->identity->username;
+                    $creator_date = date("Y-m-d");
+                    $status = 'Aktif';
+                    foreach ($names as $name) {
+                        $timestamp = time();
+                        $path = Yii::$app->basePath . '/web/foto_kamar/' .$name->baseName.'_'.$timestamp.'.'.$name->extension;
+                        if ($name->saveAs($path)) {
+                            $nama_foto = $name->baseName.'_'.$timestamp.'.'.$name->extension;
+                            $file = '/foto_kamar/' .$name->baseName.'_'.$timestamp.'.'.$name->extension;
+                            Yii::$app->db->createCommand()->insert('foto_kamar', ['foto_id_kamar' => $kamar, 'foto_kamar' => $nama_foto, 'created_by' => $creator_name, 'created_date' => $creator_date, 'file' => $file, 'status' => $status])->execute();
+                        }
+                    }
+                }
+            }else{
+                return $model->getErrors();
+            }
+            Yii::$app->session->setFlash('success', 'Data berhasil ditambah.');
             return $this->redirect(['view', 'id' => $model->kamar_id]);
         }
-
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -86,7 +133,14 @@ class KamarController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //     return $this->redirect(['view', 'id' => $model->kamar_id]);
+        // }
+        if ($model->load(Yii::$app->request->post())) {
+            // Yii::$app->creator->update($model);
+            $model->updated_by = Yii::$app->user->identity->username;
+       	    $model->updated_date = date("Y-m-d");
+            $model->save();
             return $this->redirect(['view', 'id' => $model->kamar_id]);
         }
 
@@ -105,7 +159,7 @@ class KamarController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
+        Yii::$app->session->setFlash('success', 'Data berhasil dihapus.');
         return $this->redirect(['index']);
     }
 

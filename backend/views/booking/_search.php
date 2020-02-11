@@ -25,6 +25,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'booking_tgl_pesan') ?>
 
+    <?php // echo $form->field($model, 'booking_tgl_check_in') ?>
+
     <?php // echo $form->field($model, 'booking_status') ?>
 
     <div class="form-group">

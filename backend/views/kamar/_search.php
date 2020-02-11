@@ -25,7 +25,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'kamar_deskripsi') ?>
 
-    <?php // echo $form->field($model, 'kamar_foto') ?>
+    <?php // echo $form->field($model, 'created_by') ?>
+
+    <?php // echo $form->field($model, 'created_date') ?>
+
+    <?php // echo $form->field($model, 'updated_by') ?>
+
+    <?php // echo $form->field($model, 'updated_date') ?>
 
     <?php // echo $form->field($model, 'kamar_status') ?>
 
