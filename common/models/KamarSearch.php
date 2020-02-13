@@ -18,7 +18,7 @@ class KamarSearch extends Kamar
     {
         return [
             [['kamar_id', 'kamar_harga'], 'integer'],
-            [['kamar_nama', 'kamar_type', 'kamar_deskripsi', 'kamar_foto', 'kamar_status'], 'safe'],
+            [['kamar_nama', 'kamar_type', 'kamar_deskripsi', 'created_by', 'created_date', 'updated_by', 'updated_date', 'kamar_status'], 'safe'],
         ];
     }
 
@@ -60,12 +60,15 @@ class KamarSearch extends Kamar
         $query->andFilterWhere([
             'kamar_id' => $this->kamar_id,
             'kamar_harga' => $this->kamar_harga,
+            'created_date' => $this->created_date,
+            'updated_date' => $this->updated_date,
         ]);
 
         $query->andFilterWhere(['like', 'kamar_nama', $this->kamar_nama])
             ->andFilterWhere(['like', 'kamar_type', $this->kamar_type])
             ->andFilterWhere(['like', 'kamar_deskripsi', $this->kamar_deskripsi])
-            ->andFilterWhere(['like', 'kamar_foto', $this->kamar_foto])
+            ->andFilterWhere(['like', 'created_by', $this->created_by])
+            ->andFilterWhere(['like', 'updated_by', $this->updated_by])
             ->andFilterWhere(['like', 'kamar_status', $this->kamar_status]);
 
         return $dataProvider;

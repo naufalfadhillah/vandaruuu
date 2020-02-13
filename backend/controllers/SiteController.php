@@ -8,6 +8,7 @@ use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\User;
 use common\models\ChangePassword;
+use yii\base\InvalidParamException;
 
 /**
  * Site controller
@@ -132,7 +133,7 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
-        sss;
+
     }
 
 

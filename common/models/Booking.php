@@ -12,6 +12,7 @@ use Yii;
  * @property int $booking_id_kamar
  * @property int $booking_durasi
  * @property string $booking_tgl_pesan
+ * @property string $booking_tgl_check_in
  * @property string $booking_status
  *
  * @property Kamar $bookingIdKamar
@@ -35,9 +36,9 @@ class Booking extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['booking_id_pelanggan', 'booking_id_kamar', 'booking_durasi', 'booking_status'], 'required'],
+            [['booking_id_pelanggan', 'booking_id_kamar', 'booking_durasi', 'booking_tgl_check_in', 'booking_status'], 'required'],
             [['booking_id_pelanggan', 'booking_id_kamar', 'booking_durasi'], 'integer'],
-            [['booking_tgl_pesan'], 'safe'],
+            [['booking_tgl_pesan', 'booking_tgl_check_in'], 'safe'],
             [['booking_status'], 'string'],
             [['booking_id_kamar'], 'exist', 'skipOnError' => true, 'targetClass' => Kamar::className(), 'targetAttribute' => ['booking_id_kamar' => 'kamar_id']],
             [['booking_id_pelanggan'], 'exist', 'skipOnError' => true, 'targetClass' => Pelanggan::className(), 'targetAttribute' => ['booking_id_pelanggan' => 'pelanggan_id']],
@@ -55,6 +56,7 @@ class Booking extends \yii\db\ActiveRecord
             'booking_id_kamar' => 'Booking Id Kamar',
             'booking_durasi' => 'Booking Durasi',
             'booking_tgl_pesan' => 'Booking Tgl Pesan',
+            'booking_tgl_check_in' => 'Booking Tgl Check In',
             'booking_status' => 'Booking Status',
         ];
     }

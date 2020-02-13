@@ -17,9 +17,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'galeri_id') ?>
 
-    <?= $form->field($model, 'galeri_gambar') ?>
+    <?= $form->field($model, 'galeri_nama') ?>
 
-    <?= $form->field($model, 'galeri_deskripsi') ?>
+    <?= $form->field($model, 'galeri_keterangan') ?>
+
+    <?= $form->field($model, 'created_by') ?>
+
+    <?= $form->field($model, 'created_date') ?>
+
+    <?php // echo $form->field($model, 'updated_by') ?>
+
+    <?php // echo $form->field($model, 'updated_date') ?>
+
+    <?php // echo $form->field($model, 'status') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

@@ -18,7 +18,7 @@ class GaleriSearch extends Galeri
     {
         return [
             [['galeri_id'], 'integer'],
-            [['galeri_gambar', 'galeri_deskripsi'], 'safe'],
+            [['galeri_nama', 'galeri_keterangan', 'created_by', 'created_date', 'updated_by', 'updated_date', 'status'], 'safe'],
         ];
     }
 
@@ -59,10 +59,15 @@ class GaleriSearch extends Galeri
         // grid filtering conditions
         $query->andFilterWhere([
             'galeri_id' => $this->galeri_id,
+            'created_date' => $this->created_date,
+            'updated_date' => $this->updated_date,
         ]);
 
-        $query->andFilterWhere(['like', 'galeri_gambar', $this->galeri_gambar])
-            ->andFilterWhere(['like', 'galeri_deskripsi', $this->galeri_deskripsi]);
+        $query->andFilterWhere(['like', 'galeri_nama', $this->galeri_nama])
+            ->andFilterWhere(['like', 'galeri_keterangan', $this->galeri_keterangan])
+            ->andFilterWhere(['like', 'created_by', $this->created_by])
+            ->andFilterWhere(['like', 'updated_by', $this->updated_by])
+            ->andFilterWhere(['like', 'status', $this->status]);
 
         return $dataProvider;
     }
