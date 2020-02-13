@@ -6,6 +6,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\User;
+use common\models\ChangePassword;
 
 /**
  * Site controller
@@ -26,7 +28,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index', 'password'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -63,6 +65,40 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionPassword()
+    {
+        // $this->layout = Auth::getRole();
+        // $model = User::findOne(Yii::$app->user->identity->id);
+        // if(Yii::$app->user->identity->role != '') {
+        //     $model->password_hash = Yii::$app->security->generatePasswordHash($model->password_hash);
+        //     $model->auth_key = Yii::$app->security->generateRandomString();
+        //     $model->password_reset_token = Yii::$app->security->generateRandomString() . '_' . time();
+        //     if($model->load(Yii::$app->request->post())){
+        //         $model->save();
+        //         return $this->redirect(['site/profile']);
+        //     }
+        //     return $this->render('profile');
+
+        // } else {
+        //     return $this->goHome();
+        // }
+        $id = \Yii::$app->user->id;
+ 
+        try {
+            $model = new ChangePassword($id);
+        } catch (InvalidParamException $e) {
+            throw new \yii\web\BadRequestHttpException($e->getMessage());
+        }
+     
+        if ($model->load(\Yii::$app->request->post()) && $model->validate() && $model->changePassword()) {
+            \Yii::$app->session->setFlash('success', 'Password Changed!');
+        }
+     
+        return $this->render('change_password', [
+            'model' => $model,
+        ]);
+    }
+
     /**
      * Login action.
      *
@@ -96,5 +132,9 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+        sss;
     }
+
+
+
 }
