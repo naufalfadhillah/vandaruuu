@@ -12,16 +12,21 @@ use Yii;
  * @property string $kamar_type
  * @property int $kamar_harga
  * @property string $kamar_deskripsi
- * @property string $kamar_foto
+ * @property string $created_by
+ * @property string $created_date
+ * @property string $updated_by
+ * @property string $updated_date
  * @property string $kamar_status
  *
  * @property Booking[] $bookings
+ * @property FotoKamar[] $fotoKamars
  */
 class Kamar extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
+    public $filesaver;
     public static function tableName()
     {
         return 'kamar';
@@ -33,10 +38,13 @@ class Kamar extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['kamar_nama', 'kamar_type', 'kamar_harga', 'kamar_deskripsi', 'kamar_foto', 'kamar_status'], 'required'],
+            [['kamar_nama', 'kamar_type', 'kamar_harga'], 'required'],
             [['kamar_harga'], 'integer'],
-            [['kamar_deskripsi', 'kamar_foto', 'kamar_status'], 'string'],
+            [['filesaver'], 'file', 'maxFiles' => 10, 'extensions' => 'png, jpg, jpeg'],
+            [['kamar_deskripsi', 'kamar_status'], 'string'],
+            [['created_date', 'updated_date'], 'safe'],
             [['kamar_nama', 'kamar_type'], 'string', 'max' => 30],
+            [['created_by', 'updated_by'], 'string', 'max' => 100],
         ];
     }
 
@@ -51,7 +59,10 @@ class Kamar extends \yii\db\ActiveRecord
             'kamar_type' => 'Kamar Type',
             'kamar_harga' => 'Kamar Harga',
             'kamar_deskripsi' => 'Kamar Deskripsi',
-            'kamar_foto' => 'Kamar Foto',
+            'created_by' => 'Created By',
+            'created_date' => 'Created Date',
+            'updated_by' => 'Updated By',
+            'updated_date' => 'Updated Date',
             'kamar_status' => 'Kamar Status',
         ];
     }
@@ -62,5 +73,13 @@ class Kamar extends \yii\db\ActiveRecord
     public function getBookings()
     {
         return $this->hasMany(Booking::className(), ['booking_id_kamar' => 'kamar_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getFotoKamars()
+    {
+        return $this->hasMany(FotoKamar::className(), ['foto_id_kamar' => 'kamar_id']);
     }
 }

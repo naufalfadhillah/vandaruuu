@@ -18,7 +18,7 @@ class BookingSearch extends Booking
     {
         return [
             [['booking_id', 'booking_id_pelanggan', 'booking_id_kamar', 'booking_durasi'], 'integer'],
-            [['booking_tgl_pesan', 'booking_status'], 'safe'],
+            [['booking_tgl_pesan', 'booking_tgl_check_in', 'booking_status'], 'safe'],
         ];
     }
 
@@ -63,6 +63,7 @@ class BookingSearch extends Booking
             'booking_id_kamar' => $this->booking_id_kamar,
             'booking_durasi' => $this->booking_durasi,
             'booking_tgl_pesan' => $this->booking_tgl_pesan,
+            'booking_tgl_check_in' => $this->booking_tgl_check_in,
         ]);
 
         $query->andFilterWhere(['like', 'booking_status', $this->booking_status]);

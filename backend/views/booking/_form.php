@@ -20,6 +20,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'booking_tgl_pesan')->textInput() ?>
 
+    <?= $form->field($model, 'booking_tgl_check_in')->textInput() ?>
+
     <?= $form->field($model, 'booking_status')->dropDownList([ 'Menunggu Pembayaran' => 'Menunggu Pembayaran', 'Sudah dibayar' => 'Sudah dibayar', 'Dibatalkan' => 'Dibatalkan', ], ['prompt' => '']) ?>
 
     <div class="form-group">
