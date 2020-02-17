@@ -1,3 +1,8 @@
+<?php
+use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
+use yii\helpers\Url;
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 <div class="banner banner-2">
@@ -74,15 +79,7 @@
                     <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
                         <ul class="nav navbar-nav">
                             <li class="dropdown active">
-                                <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                                    Home<span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="index.html">Home 1</a></li>
-                                    <li><a href="index-2.html">Home 2</a></li>
-                                    <li><a href="index-3.html">Home 3</a></li>
-                                    <li><a href="index-4.html">Home 4</a></li>
-                                </ul>
+                                <?= Html::a('Home ', ['/kamar'])?>
                             </li>
                             <li class="dropdown">
                                 <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
@@ -198,7 +195,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="text">
                     <h5>Hotel Bayview</h5>
-                    <h1>Welcome To Hotel Alpha</h1>
+                    <h1>Selamat Datang di Vandaru</h1>
                     <p>Duis vel nisl lacinia, facilisis in, consectetur leon vestibulum et ullamcorper tortor leon placerat mauris tincidunt ut non velit faucibus nam a
                         pretium sapien nunc quis congue purus nunc feugiat nec purus a ultricies suspendisse in fringilla est sodales dui, non mattis tortor volutpat vitae.</p>
                     <br>
@@ -219,7 +216,7 @@
         <div class="container">
             <!-- Main title -->
             <div class="main-title">
-                <h1>Our Best Rooms</h1>
+                <h1>Daftar Kamar</h1>
                 <p>These best rooms chosen by our customers</p>
             </div>
             <div class="row">

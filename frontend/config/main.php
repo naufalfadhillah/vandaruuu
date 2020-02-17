@@ -41,8 +41,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                ''=>'site/index'
-                //'kambing'=>'site/about'
+                ''=>'site/index',
+ //               'pesan'=>'kamar/pesan'
+                'pesan/<id:\d+>'=>'kamar/pesan'
             ],
         ],
 

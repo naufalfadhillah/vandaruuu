@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Kamar;
+use common\models\Pelanggan;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -25,6 +27,18 @@ class KamarController extends Controller
                 'class' => 'yii\web\ErrorAction',
             ],
         ];
+    }
+    public function actionIndex()
+    {
+        $query = Kamar::find()->select("*")->leftJoin('foto_kamar','foto_id_kamar = kamar_id');
+        $kamar = $query->indexBy('kamar_id')->all();
+        return $this->render('index',['kamar'=>$kamar]);
+    }
+    public function actionPesan($id){
+        $model = new Pelanggan();
+        $query = Kamar::find()->select("*")->leftJoin('foto_kamar','foto_id_kamar = kamar_id');
+        $kamar = $query->indexBy('kamar_id')->all();
+        return $this->render('pesan',['kamar'=>$kamar,"model"=>$model]);
     }
 
 }
