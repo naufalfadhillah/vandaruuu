@@ -26,11 +26,11 @@
             </div>
         </form> -->
         <!-- /.search form -->
-
+        <?php if (Yii::$app->user->identity->role == 1){ ?>
         <?= dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
-                'items' => [
+                'items' => [                    
                     ['label' => 'Menu', 'options' => ['class' => 'header']],
                     ['label' => 'Home', 'icon' => 'home', 'url' => ['/']], 
                     ['label' => 'Content', 'icon' => 'file', 'url' => ['/content']],
@@ -40,10 +40,11 @@
                     ['label' => 'Data Kamar', 'icon' => 'bed', 'url' => ['/kamar']],
                     ['label' => 'Configuration', 'options' => ['class' => 'header']],
                     ['label' => 'Users', 'icon' => 'users', 'url' => ['/user']],
-                    ['label' => 'Tools', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
-                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Settings', 'icon' => 'gear', 'url' => ['/setting']],
+                    // ['label' => 'Tools', 'options' => ['class' => 'header']],
+                    // ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                    // ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    // ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     // [
                     //     'label' => 'Some tools',
                     //     'icon' => 'share',
@@ -73,6 +74,25 @@
                 ],
             ]
         ) ?>
+        <?php 
+        }else
+        {
+        ?>
+        <?= dmstr\widgets\Menu::widget(
+            [
+                'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
+                'items' => [                    
+                    ['label' => 'Menu', 'options' => ['class' => 'header']],
+                    ['label' => 'Home', 'icon' => 'home', 'url' => ['/']], 
+                    ['label' => 'Content', 'icon' => 'file', 'url' => ['/content']],
+                    ['label' => 'Gallery', 'icon' => 'photo', 'url' => ['/galeri']],
+                    // ['label' => 'Booking', 'icon' => 'pencil', 'url' => ['/booking']],
+                    ['label' => 'Data Master', 'options' => ['class' => 'header']],
+                    ['label' => 'Data Kamar', 'icon' => 'bed', 'url' => ['/kamar']],
+                ],
+            ]
+        ) ?>
+        <?php } ?>
 
     </section>
 

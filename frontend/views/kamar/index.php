@@ -178,7 +178,7 @@ $this->title = "Daftar Kamar";
                                         <div class="hotel-box">
                                             <!--header -->
                                             <div class="header clearfix">
-                                                <img src="<?= Yii::$app->request->baseUrl . '/backend/web/foto_kamar/' .$k['kamar'] ?>" class=" img-responsive" >
+                                                <img src="<?= Yii::$app->request->baseUrl . '/backend/web' .$k['kamar_foto'] ?>" class=" img-responsive" >
                                             </div>
                                             <!-- Detail -->
                                             <div class="detail clearfix">

@@ -10,6 +10,9 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use common\models\SettingSearch;
+use common\models\Setting;
+
 
 AppAsset::register($this);
 ?>
@@ -70,13 +73,13 @@ AppAsset::register($this);
     </div>
 </div>
 
-<footer class="footer">
+<!-- <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+        <p class="pull-left">&copy; <?php // Html::encode(Yii::$app->name) ?> <?php // date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><?php // Yii::powered() ?></p>
     </div>
-</footer>
+</footer> -->
 
 <?php $this->endBody() ?>
 </body>
