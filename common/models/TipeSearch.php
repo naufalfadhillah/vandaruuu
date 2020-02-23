@@ -4,12 +4,12 @@ namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\kamar;
+use common\models\Tipe;
 
 /**
- * KamarSearch represents the model behind the search form of `common\models\kamar`.
+ * TipeSearch represents the model behind the search form of `common\models\Tipe`.
  */
-class KamarSearch extends kamar
+class TipeSearch extends Tipe
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class KamarSearch extends kamar
     public function rules()
     {
         return [
-            [['kamar_id', 'kamar_tipe'], 'integer'],
-            [['kamar_nama', 'created_by', 'created_date', 'updated_by', 'updated_date', 'kamar_status'], 'safe'],
+            [['tipe_id', 'tipe_harga'], 'integer'],
+            [['tipe_nama', 'tipe_deskripsi', 'tipe_fasilitas', 'tipe_gambar'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class KamarSearch extends kamar
      */
     public function search($params)
     {
-        $query = kamar::find();
+        $query = Tipe::find();
 
         // add conditions that should always apply here
 
@@ -58,16 +58,14 @@ class KamarSearch extends kamar
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'kamar_id' => $this->kamar_id,
-            'kamar_tipe' => $this->kamar_tipe,
-            'created_date' => $this->created_date,
-            'updated_date' => $this->updated_date,
+            'tipe_id' => $this->tipe_id,
+            'tipe_harga' => $this->tipe_harga,
         ]);
 
-        $query->andFilterWhere(['like', 'kamar_nama', $this->kamar_nama])
-            ->andFilterWhere(['like', 'created_by', $this->created_by])
-            ->andFilterWhere(['like', 'updated_by', $this->updated_by])
-            ->andFilterWhere(['like', 'kamar_status', $this->kamar_status]);
+        $query->andFilterWhere(['like', 'tipe_nama', $this->tipe_nama])
+            ->andFilterWhere(['like', 'tipe_deskripsi', $this->tipe_deskripsi])
+            ->andFilterWhere(['like', 'tipe_fasilitas', $this->tipe_fasilitas])
+            ->andFilterWhere(['like', 'tipe_gambar', $this->tipe_gambar]);
 
         return $dataProvider;
     }

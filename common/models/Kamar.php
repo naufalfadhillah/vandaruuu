@@ -9,9 +9,7 @@ use Yii;
  *
  * @property int $kamar_id
  * @property string $kamar_nama
- * @property string $kamar_type
- * @property int $kamar_harga
- * @property string $kamar_deskripsi
+ * @property int $kamar_tipe
  * @property string $created_by
  * @property string $created_date
  * @property string $updated_by
@@ -19,14 +17,13 @@ use Yii;
  * @property string $kamar_status
  *
  * @property Booking[] $bookings
- * @property FotoKamar[] $fotoKamars
+ * @property Tipe $kamarTipe
  */
 class Kamar extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
-    public $filesaver;
     public static function tableName()
     {
         return 'kamar';
@@ -38,13 +35,13 @@ class Kamar extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['kamar_nama', 'kamar_type', 'kamar_harga'], 'required'],
-            [['kamar_harga'], 'integer'],
-            [['filesaver'], 'file', 'maxFiles' => 10, 'extensions' => 'png, jpg, jpeg'],
-            [['kamar_deskripsi', 'kamar_status','kamar_foto'], 'string'],
+            [['kamar_nama', 'kamar_tipe', 'kamar_status'], 'required'],
+            [['kamar_tipe'], 'integer'],
             [['created_date', 'updated_date'], 'safe'],
-            [['kamar_nama', 'kamar_type'], 'string', 'max' => 30],
+            [['kamar_status'], 'string'],
+            [['kamar_nama'], 'string', 'max' => 30],
             [['created_by', 'updated_by'], 'string', 'max' => 100],
+            [['kamar_tipe'], 'exist', 'skipOnError' => true, 'targetClass' => Tipe::className(), 'targetAttribute' => ['kamar_tipe' => 'tipe_id']],
         ];
     }
 
@@ -56,10 +53,7 @@ class Kamar extends \yii\db\ActiveRecord
         return [
             'kamar_id' => 'Kamar ID',
             'kamar_nama' => 'Kamar Nama',
-            'kamar_type' => 'Kamar Type',
-            'kamar_harga' => 'Kamar Harga',
-            'kamar_foto' => 'Foto Kamar',
-            'kamar_deskripsi' => 'Kamar Deskripsi',
+            'kamar_tipe' => 'Kamar Tipe',
             'created_by' => 'Created By',
             'created_date' => 'Created Date',
             'updated_by' => 'Updated By',
@@ -79,11 +73,8 @@ class Kamar extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getFotoKamars()
+    public function getKamarTipe()
     {
-        return $this->hasMany(FotoKamar::className(), ['foto_id_kamar' => 'kamar_id']);
-    }
-    public function getKamar(){
-
+        return $this->hasOne(Tipe::className(), ['tipe_id' => 'kamar_tipe']);
     }
 }
