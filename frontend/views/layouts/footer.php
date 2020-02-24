@@ -12,7 +12,7 @@ use common\models\FotoGaleri;
 $model = Setting::findOne(1);
 $model2 = FotoGaleri::find()->all();
 ?>
-
+</body>
 <!-- Footer start -->
 <footer class="main-footer clearfix">
     <div class="container">
@@ -132,36 +132,31 @@ $model2 = FotoGaleri::find()->all();
                         </ul>
                     </div>
                 </div>
-                <!-- Newsletter -->
-                <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="footer-item newsletter">
-                        <div class="main-title-2">
-                            <h1>Newsletter</h1>
-                        </div>
-                        <div class="newsletter-inner">
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <form action="index.html#" method="GET">
-                                <p><input type="text" class="form-contact" name="email" placeholder="Enter your email"></p>
-                                <p><button type="submit" name="submitNewsletter" class="btn btn-small">
-                                        Signup
-                                    </button></p>
-                            </form>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
 </footer>
+<script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
 <!-- Footer end -->
+<script src="js/jquery-2.2.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-submenu.js"></script>
+<script src="js/jquery.mb.YTPlayer.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.scrollUp.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/jquery.filterizr.js"></script>
+<script src="js/bootstrap-datepicker.min.js"></script>
+<script src="js/app.js"></script>
 
-<!-- Copy right start -->
-<div class="copy-right">
-    <div class="container">
-        &copy;  2017 <a href="http://themevessel.com/" target="_blank">Theme Vessel</a>. Trademarks and brands are the property of their respective owners.
-    </div>
-</div>
-<!-- Copy end right-->
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+<!-- Custom javascript -->
 
 
 <!-- Custom javascript -->
+
+
+</html>

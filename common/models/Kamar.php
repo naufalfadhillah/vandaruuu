@@ -83,7 +83,5 @@ class Kamar extends \yii\db\ActiveRecord
     {
         return $this->hasMany(FotoKamar::className(), ['foto_id_kamar' => 'kamar_id']);
     }
-    public function getKamar(){
 
-    }
 }

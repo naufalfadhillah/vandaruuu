@@ -39,10 +39,12 @@ class AppAsset extends AssetBundle
         'js/jquery.mb.YTPlayer.js',
         'js/bootstrap-submenu.js',
         'js/bootstrap.min.js',
-        'js/jquery-2.2.0.min.js'
+        'js/jquery-2.2.0.min.js',
+        'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+
     ];
 }

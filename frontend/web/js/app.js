@@ -195,9 +195,6 @@ $(function () {
         $('link[id="style_sheet"]').attr('href', 'css/skins/' + name + '.css');
     });
 
-    $('.setting-button').on('click', function () {
-        $('.option-panel').toggleClass('option-panel-collased');
-    });
 });
 
 // mCustomScrollbar initialization

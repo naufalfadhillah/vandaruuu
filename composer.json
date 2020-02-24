@@ -25,6 +25,7 @@
         "kartik-v/yii2-widget-fileinput": "dev-master",
         "yiisoft/yii2-jui": "^2.0",
         "2amigos/yii2-ckeditor-widget": "^2.2",
+        "rmrevin/yii2-fontawesome": "2.10.*",
         "marekpetras/yii2-ajax-box-widget": "^1.0"
     },
     "require-dev": {

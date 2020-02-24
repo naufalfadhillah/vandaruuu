@@ -30,7 +30,7 @@ class KamarController extends Controller
     }
     public function actionIndex()
     {
-        $query = Kamar::find()->select("*")->leftJoin('foto_kamar','foto_id_kamar = kamar_id');
+        $query = Kamar::find()->select("*")->leftJoin('tipe','kamar_tipe = tipe_id');
         $kamar = $query->indexBy('kamar_id')->all();
         return $this->render('index',['kamar'=>$kamar]);
     }
@@ -39,6 +39,11 @@ class KamarController extends Controller
         $query = Kamar::find()->select("*")->leftJoin('foto_kamar','foto_id_kamar = kamar_id');
         $kamar = $query->indexBy('kamar_id')->all();
         return $this->render('pesan',['kamar'=>$kamar,"model"=>$model]);
+    }
+    public function actionDetail($id){
+        $query = Kamar::find()->select("*")->leftJoin('tipe','kamar_tipe = tipe_id');
+        $kamar = $query->indexBy('kamar_id')->all();
+        return $this->render('kamar_detail',['kamar'=>$kamar]);
     }
 
 }

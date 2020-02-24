@@ -42,8 +42,8 @@ return [
             'showScriptName' => false,
             'rules' => [
                 ''=>'site/index',
- //               'pesan'=>'kamar/pesan'
-                'pesan/<id:\d+>'=>'kamar/pesan'
+                'kamar'=>'kamar/index',
+                'kamar/<id:\d+>'=>'kamar/detail',
             ],
         ],
 

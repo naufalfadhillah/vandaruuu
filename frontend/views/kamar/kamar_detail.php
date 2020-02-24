@@ -4,10 +4,62 @@ use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
 
-$this->title = "Vandaroe";
+$this->title = "Daftar Kamar";
 ?>
+<!DOCTYPE html>
+<html lang="zxx">
+<div class="banner banner-2">
+    <header class="main-header main-header-2 main-header-3">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#app-navigation" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="index.html" class="logo">
+                        <img src="img/logos/white-logo.png" alt="logo">
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown active">
+                            <?= Html::a('Home ', ['/kamar'])?>
+                        </li>
+                        <li class="dropdown active">
+                            <?= Html::a('Kamar ', ['/kamar'])?>
+                        </li>
+                        <li class="dropdown active">
+                            <?= Html::a('Pemesanan ', ['/kamar'])?>
+                        </li>
+                        <li class="dropdown active">
+                            <?= Html::a('Pembayaran ', ['/kamar'])?>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
+                        <li>
+                            <a class="btn-navbar btn btn-sm btn-white-sm-outline btn-round" href="login.html">Create
+                                Account</a>
+                        </li>
+                    </ul>
+                </div>
 
+                <!-- /.navbar-collapse -->
+                <!-- /.container -->
+            </nav>
 
+            <div class="header-search animated fadeInDown">
+                <form class="form-inline">
+                    <input type="text" class="form-control" id="searchKey" placeholder="Search...">
+                    <div class="search-btns">
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </header>
     <div class="banner-inner">
@@ -18,7 +70,7 @@ $this->title = "Vandaroe";
                     <img src="img/banner/banner-slider-3.jpg" alt="banner-slider-3">
                     <div class="carousel-caption banner-slider-inner banner-top-align">
                         <div class="banner-content text-center">
-                            <h1 data-animation="animated fadeInDown delay-05s"><span>Selamat Datang di</span> Vandaroe
+                            <h1 data-animation="animated fadeInDown delay-05s"><span>Selamat Datang di</span> Vandaru
                             </h1>
                             <p data-animation="animated fadeInUp delay-1s">Lorem ipsum dolor sit amet, conconsectetuer
                                 adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer</p>
@@ -54,16 +106,16 @@ $this->title = "Vandaroe";
             </div>
 
             <!-- Controls -->
-            <a class="left carousel-control" href="<?= Yii::$app->request->baseUrl?>#carousel-example-generic" role="button" data-slide="prev">
+            <a class="left carousel-control" href="index.html#carousel-example-generic" role="button" data-slide="prev">
             <span class="slider-mover-left" aria-hidden="true">
-                <i class="glyphicon glyphicon-menu-left"></i>
+                <i class="fa fa-angle-left"></i>
             </span>
                 <span class="sr-only">Previous</span>
             </a>
             <a class="right carousel-control" href="index.html#carousel-example-generic" role="button"
                data-slide="next">
             <span class="slider-mover-right" aria-hidden="true">
-                <i class="glyphicon glyphicon-menu-right"></i>
+                <i class="fa fa-angle-right"></i>
             </span>
                 <span class="sr-only">Next</span>
             </a>
@@ -80,12 +132,14 @@ $this->title = "Vandaroe";
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="text">
-                    <h1>Selamat Datang di Vandaroe</h1>
+                    <h5>Hotel Bayview</h5>
+                    <h1>Selamat Datang di Vandaru</h1>
                     <p>Duis vel nisl lacinia, facilisis in, consectetur leon vestibulum et ullamcorper tortor leon
                         placerat mauris tincidunt ut non velit faucibus nam a
                         pretium sapien nunc quis congue purus nunc feugiat nec purus a ultricies suspendisse in
                         fringilla est sodales dui, non mattis tortor volutpat vitae.</p>
                     <br>
+                    <a href="blog-details.html" class="btn btn-outline2 btn-md">View Details</a>
                 </div>
             </div>
             <div class="col-lg-5 col-lg-offset-1 col-md-6">
@@ -103,54 +157,54 @@ $this->title = "Vandaroe";
             <!-- Main title -->
             <div class="main-title">
                 <h1>Daftar Kamar</h1>
-                <a href="blog-details.html" class="btn btn-outline2 btn-md">Tampilkan Lebih Banyak</a>
+                <p>Tampilkan Lebih Banyak</p>
             </div>
             <div class="row">
                 <div class="carousel our-partners slide" id="ourPartners3">
                     <div class="col-lg-12 mb-30">
-<!--                        <a class="right carousel-control" href="index.html#ourPartners3" data-slide="prev"><i-->
-<!--                                    class="fa fa-chevron-left icon-prev"></i></a>-->
-<!--                        <a class="right carousel-control" href="index.html#ourPartners3" data-slide="next"><i-->
-<!--                                    class="fa fa-chevron-right icon-next"></i></a>-->
+                        <a class="right carousel-control" href="index.html#ourPartners3" data-slide="prev"><i
+                                    class="fa fa-chevron-left icon-prev"></i></a>
+                        <a class="right carousel-control" href="index.html#ourPartners3" data-slide="next"><i
+                                    class="fa fa-chevron-right icon-next"></i></a>
                     </div>
-<!--                    <div class="carousel-inner">-->
-<!---->
-<!--                        --><?php //if (count($kamar) > 0) {
-//                            $no = 0;
-//                            ?>
-<!--                            --><?php //foreach ($kamar as $k) { ?>
-<!--                                <div class="item --><?php //if ($no==0){ echo 'active';}?><!--">-->
-<!--                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
-<!--                                        <div class="hotel-box">-->
-<!--                                            <!--header -->-->
-<!--                                            <div class="header clearfix">-->
-<!--                                                <img src="--><?//= Yii::$app->request->baseUrl . '/backend/web' .$k['kamar_foto'] ?><!--" class=" img-responsive" >-->
-<!--                                            </div>-->
-<!--                                            <!-- Detail -->-->
-<!--                                            <div class="detail clearfix">-->
-<!--                                                <div class="pr float-right">-->
-<!--                                                    Rp. --><?//= Html::encode("{$k['kamar_harga']}") ?><!--<sub>/Hari</sub>-->
-<!--                                                </div>-->
-<!--                                                <h3>-->
-<!--                                                    <a href="--><?//= Url::to(['/kamar/pesan', 'id' =>$k['kamar_id']])?><!--">--><?//= $k['kamar_nama']?><!--</a>-->
-<!--                                                </h3>-->
-<!--                                                <h5 class="location">-->
-<!--                                                    <a href="rooms-details.html">-->
-<!--                                                        Type : --><?//= Html::encode("{$k['kamar_type']}") ?>
-<!--                                                    </a>-->
-<!--                                                </h5>-->
-<!---->
-<!--                                                <p>--><?//= HTML::decode("{$k['kamar_deskripsi']}") ?><!--</p>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                --><?php //$no++;
-//                            }
-//                        } ?>
-<!---->
-<!---->
-<!--                    </div>-->
+                    <div class="carousel-inner">
+
+                        <?php if (count($kamar) > 0) {
+                            $no = 0;
+                            ?>
+                            <?php foreach ($kamar as $k) { ?>
+                                <div class="item <?php if ($no==0){ echo 'active';}?>">
+                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                        <div class="hotel-box">
+                                            <!--header -->
+                                            <div class="header clearfix">van
+                                                <img src="<?= Yii::$app->request->baseUrl . '/backend/web' .$k['tipe_gambar'] ?>" class=" img-responsive" >
+                                            </div>
+                                            <!-- Detail -->
+                                            <div class="detail clearfix">
+                                                <div class="pr float-right">
+                                                    Rp. <?= Html::encode("{$k['tipe_harga']}") ?><sub>/Hari</sub>
+                                                </div>
+                                                <h3>
+                                                    <a href="<?= Url::to(['/kamar/pesan', 'id' =>$k['kamar_id']])?>"><?= $k['kamar_nama']?></a>
+                                                </h3>
+                                                <h5 class="location">
+                                                    <a href="rooms-details.html">
+                                                        Type : <?= Html::encode("{$k['tipe_nama']}") ?>
+                                                    </a>
+                                                </h5>
+
+                                                <p><?= HTML::decode("{$k['kamar_deskripsi']}") ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php $no++;
+                            }
+                        } ?>
+
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -164,7 +218,8 @@ $this->title = "Vandaroe";
         <div class="container">
             <!-- Main title -->
             <div class="main-title">
-                <h1>Fasilitas</h1>
+                <h1>Our Facilties</h1>
+                <p>Check out our hotel facilties </p>
             </div>
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-04s">
@@ -246,15 +301,14 @@ $this->title = "Vandaroe";
 <!-- Our facilties section end -->
 
 <!-- News popular testimonials start -->
-<div class="gallery clearfix content-area-11">
+<div class="news-popular-testimonials-section content-area-7">
     <div class="container">
-        <div class="main-title">
-            <h1>Testimonial</h1>
-        </div>
         <div class="row">
-
+            <div class="col-12">
                 <!-- Main title -->
-
+                <div class="main-title">
+                    <h1>Testimonials</h1>
+                </div>
                 <!-- Testimonial 3 start -->
                 <div class="testimonials-3 hidden-mb-60">
                     <div class="row">
@@ -290,7 +344,7 @@ $this->title = "Vandaroe";
                                         </div>
                                         <div class="item content clearfix">
                                             <div class="item-inner">
-                                                <p>ayamLorem ipsum dolor sit amet, conser adipiscing elit. Maecenas in
+                                                <p>Lorem ipsum dolor sit amet, conser adipiscing elit. Maecenas in
                                                     pulvinar neque. Nulla finibus lobortis pulvinar. Donec</p>
                                                 <div class="author-name">
                                                     John Doe
@@ -301,15 +355,35 @@ $this->title = "Vandaroe";
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!-- Controls -->
+                                    <a class="left carousel-control" href="index.html#carousel-custom3" role="button"
+                                       data-slide="prev">
+                                        <span class="slider-mover-left t-slider-l" aria-hidden="true">
+                                             <i class="fa fa-angle-left"></i>
+                                        </span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="right carousel-control" href="index.html#carousel-custom3" role="button"
+                                       data-slide="next">
+                                        <span class="slider-mover-right t-slider-r" aria-hidden="true">
+                                             <i class="fa fa-angle-right"></i>
+                                        </span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                </div>
                 <!-- Testimonial 3 end -->
             </div>
+            <div class="col-lg-4 col-md-5 col-sm-12 hidden-sm">
+                <div class="gallery-section">
+                    <!-- Main title -->
 
+                    <!--  Photo gallery end -->
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -320,7 +394,8 @@ $this->title = "Vandaroe";
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
-            <h1>Gallery</h1>
+            <h1>Our Gallery</h1>
+            <p>Check out our hotel photo gallery</p>
         </div>
 
 
@@ -387,3 +462,31 @@ $this->title = "Vandaroe";
         </div>
     </div>
 </div>
+<!-- Gallery secion end -->
+
+<!-- Blog section start -->
+
+<!-- Blog section end -->
+
+
+<!-- Copy end right-->
+
+<script src="js/jquery-2.2.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-submenu.js"></script>
+<script src="js/jquery.mb.YTPlayer.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.scrollUp.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/jquery.filterizr.js"></script>
+<script src="js/bootstrap-datepicker.min.js"></script>
+<script src="js/app.js"></script>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+<!-- Custom javascript -->
+
+</body>
+</html>
