@@ -13,6 +13,8 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\Kamar;
+use common\models\Tipe;
+use yii\db\Expression;
 /**
  * Site controller
  */
@@ -37,8 +39,13 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $query = Kamar::find()->select("*");
-        $kamar = $query->indexBy('kamar_id')->all();
+
+        $kamar = Kamar::find()->limit(4)->orderBy(new Expression('rand()'))->all();
         return $this->render('index',['kamar'=>$kamar]);
+    }
+    public function actionDetail($nomor){
+        $kamar = Kamar::findOne([
+            'kamar_id' => $nomor,]);
+        return $this->render('detail',['kamar'=>$kamar]);
     }
 }

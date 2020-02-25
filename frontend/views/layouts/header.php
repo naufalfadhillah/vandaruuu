@@ -40,7 +40,7 @@ use yii\helpers\Url;
                             <?= Html::a('Kamar ', ['/kamar'])?>
                         </li>
                         <li class="dropdown active">
-                            <?= Html::a('Pemesanan ', ['/kamar'])?>
+                            <?= Html::a('Pemesanan ', ['/pemesanan'])?>
                         </li>
                         <li class="dropdown active">
                             <?= Html::a('Pembayaran ', ['/kamar'])?>

@@ -43,7 +43,10 @@ return [
             'rules' => [
                 ''=>'site/index',
                 'kamar'=>'kamar/index',
-                'kamar/<id:\d+>'=>'kamar/detail',
+                'detail'=>'site/detail',
+                'pemesanan'=>'kamar/pesan',
+//                'kamar/rincian'=>'detail/index',
+//                'rincian/<id:\d+>'=>'kamar/detail',
             ],
         ],
 
