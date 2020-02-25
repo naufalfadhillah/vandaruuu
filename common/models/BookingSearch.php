@@ -17,8 +17,8 @@ class BookingSearch extends Booking
     public function rules()
     {
         return [
-            [['booking_id', 'booking_id_pelanggan', 'booking_id_kamar', 'booking_durasi'], 'integer'],
-            [['booking_tgl_pesan', 'booking_tgl_check_in', 'booking_status'], 'safe'],
+            [['booking_id', 'booking_id_pelanggan', 'booking_durasi', 'booking_harga'], 'integer'],
+            [['booking_id_kamar', 'booking_tgl_pesan', 'booking_tgl_check_in', 'booking_status'], 'safe'],
         ];
     }
 
@@ -60,13 +60,14 @@ class BookingSearch extends Booking
         $query->andFilterWhere([
             'booking_id' => $this->booking_id,
             'booking_id_pelanggan' => $this->booking_id_pelanggan,
-            'booking_id_kamar' => $this->booking_id_kamar,
             'booking_durasi' => $this->booking_durasi,
             'booking_tgl_pesan' => $this->booking_tgl_pesan,
             'booking_tgl_check_in' => $this->booking_tgl_check_in,
+            'booking_harga' => $this->booking_harga,
         ]);
 
-        $query->andFilterWhere(['like', 'booking_status', $this->booking_status]);
+        $query->andFilterWhere(['like', 'booking_id_kamar', $this->booking_id_kamar])
+            ->andFilterWhere(['like', 'booking_status', $this->booking_status]);
 
         return $dataProvider;
     }
