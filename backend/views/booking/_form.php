@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'booking_id_pelanggan')->textInput() ?>
 
-    <?= $form->field($model, 'booking_id_kamar')->textInput() ?>
+    <?= $form->field($model, 'booking_id_kamar')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'booking_durasi')->textInput() ?>
 
@@ -23,6 +23,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'booking_tgl_check_in')->textInput() ?>
 
     <?= $form->field($model, 'booking_status')->dropDownList([ 'Menunggu Pembayaran' => 'Menunggu Pembayaran', 'Sudah dibayar' => 'Sudah dibayar', 'Dibatalkan' => 'Dibatalkan', ], ['prompt' => '']) ?>
+
+    <?= $form->field($model, 'booking_harga')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
