@@ -77,4 +77,7 @@ class Kamar extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Tipe::className(), ['tipe_id' => 'kamar_tipe']);
     }
+    public function getKamar() {
+        return $this->hasMany(Kamar::className(), ['kamar_id' => 'id']);
+    }
 }

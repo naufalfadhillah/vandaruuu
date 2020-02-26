@@ -27,10 +27,13 @@ use yii\helpers\Url;
             'autoclose' => true,
             'format' => 'yyyy-mm-dd'
         ]
-    ]);?>
+    ]);
+    ?>
     <?= $form->field($model, 'pelanggan_no_hp')->textInput() ?>
     <?= $form->field($pemesanan, 'booking_durasi')->textInput() ?>
-    <?= $form->field($pemesanan, 'booking_id_kamar')->textInput() ?>
+    <?= $form->field($pemesanan, 'booking_id_kamar')->checkboxList(\common\models\Software::getKamarList());
+    ?>
+    <br>
     <?= $form->field($pemesanan, 'booking_tgl_check_in')->widget(
         DatePicker::className(), [
 

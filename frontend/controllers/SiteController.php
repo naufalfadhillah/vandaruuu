@@ -48,4 +48,7 @@ class SiteController extends Controller
             'kamar_id' => $nomor,]);
         return $this->render('detail',['kamar'=>$kamar]);
     }
+    public function actionKebijakan(){
+        return $this->render('kebijakan');
+    }
 }

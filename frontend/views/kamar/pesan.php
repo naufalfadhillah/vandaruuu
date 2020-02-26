@@ -11,18 +11,20 @@ $this->title = "Pesan Kamar";
 
 </div>
 </header>
-<?php if (Yii::$app->session->hasFlash('success')): ?>
-    <h1>
-        <?= Yii::$app->session->getFlash('success') ?>
-    </h1>
-<?php endif; ?>
+
+
+
 <!-- Hotel alpha start -->
 <div class="hotel-alpha content-area-12">
     <div class="container">
         <div class="row">
-            <h1>Formulir Pemesanan</h1>
+            <?php if (Yii::$app->session->hasFlash('success')): ?>
+            <p style="background-color: green;color: white">
+                Pemesanan Berhasil ... <?= Yii::$app->session->getFlash('success') ?>
+            </p>
+            <?php endif; ?>
             <?php
-            $this->title = 'Create Booking';
+            $this->title = 'Pesan Kamar';
             $this->params['breadcrumbs'][] = ['label' => 'Bookings', 'url' => ['index']];
             $this->params['breadcrumbs'][] = $this->title;
             ?>
@@ -33,6 +35,7 @@ $this->title = "Pesan Kamar";
                 <?= $this->render('_form', [
                     'model' => $model,
                     'pemesanan' => $pemesanan,
+
                 ]) ?>
 
             </div>

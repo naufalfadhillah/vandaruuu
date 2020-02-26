@@ -44,6 +44,7 @@ return [
                 ''=>'site/index',
                 'kamar'=>'kamar/index',
                 'detail'=>'site/detail',
+                'kebijakan'=>'site/kebijakan',
                 'pemesanan'=>'kamar/pesan',
 //                'kamar/rincian'=>'detail/index',
 //                'rincian/<id:\d+>'=>'kamar/detail',

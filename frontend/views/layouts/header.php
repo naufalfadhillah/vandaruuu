@@ -45,7 +45,9 @@ use yii\helpers\Url;
                         <li class="dropdown active">
                             <?= Html::a('Pembayaran ', ['/kamar'])?>
                         </li>
-
+                        <li class="dropdown active">
+                            <?= Html::a('Kebijakan & Ketentuan', ['/kebijakan'])?>
+                        </li>
                     </ul>
 
                 </div>
