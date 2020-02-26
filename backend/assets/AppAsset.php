@@ -21,5 +21,6 @@ class AppAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
         'yii\web\JqueryAsset',
+        '\rmrevin\yii\fontawesome\AssetBundle'
     ];
 }

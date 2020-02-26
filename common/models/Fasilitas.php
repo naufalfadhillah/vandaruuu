@@ -5,6 +5,7 @@ namespace common\models;
 use Yii;
 use yii\helpers\ArrayHelper;
 
+
 /**
  * This is the model class for table "fasilitas".
  *
@@ -50,4 +51,5 @@ class Fasilitas extends \yii\db\ActiveRecord
             ->orderBy('fasilitas_nama')->asArray()->all();
         return ArrayHelper::map($data, 'fasilitas_id', 'fasilitas_nama');
     }
+
 }
