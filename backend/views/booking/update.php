@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Booking */
 
-$this->title = 'Update Booking: ' . $model->booking_id;
+$this->title = 'Upload Bukti Pembayaran: ' . $model->booking_id;
 $this->params['breadcrumbs'][] = ['label' => 'Bookings', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->booking_id, 'url' => ['view', 'id' => $model->booking_id]];
 $this->params['breadcrumbs'][] = 'Update';
@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
+    <?= $this->render('__form', [
         'model' => $model,
     ]) ?>
 

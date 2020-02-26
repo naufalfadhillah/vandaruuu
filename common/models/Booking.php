@@ -25,6 +25,7 @@ class Booking extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    public $filesaver;
     public static function tableName()
     {
         return 'booking';
@@ -41,6 +42,7 @@ class Booking extends \yii\db\ActiveRecord
             [['booking_tgl_pesan', 'booking_tgl_check_in'], 'safe'],
             [['booking_status'], 'string'],
             [['booking_id_kamar'], 'string', 'max' => 100],
+            [['filesaver'], 'file', 'maxFiles' => 1, 'extensions' => 'png, jpg, jpeg'],
             [['booking_id_pelanggan'], 'exist', 'skipOnError' => true, 'targetClass' => Pelanggan::className(), 'targetAttribute' => ['booking_id_pelanggan' => 'pelanggan_id']],
         ];
     }

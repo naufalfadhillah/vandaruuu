@@ -21,6 +21,7 @@ class Pembayaran extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    
     public static function tableName()
     {
         return 'pembayaran';
@@ -32,7 +33,7 @@ class Pembayaran extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['pembayaran_id_booking', 'pembayaran_jumlah', 'pembayaran_resi', 'status'], 'required'],
+            [['pembayaran_id_booking', 'pembayaran_jumlah', 'status'], 'required'],
             [['pembayaran_id_booking', 'pembayaran_jumlah'], 'integer'],
             [['pembayaran_tgl_bayar'], 'safe'],
             [['pembayaran_resi', 'status'], 'string'],

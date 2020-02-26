@@ -35,7 +35,7 @@
                     ['label' => 'Home', 'icon' => 'home', 'url' => ['/']], 
                     ['label' => 'Content', 'icon' => 'file', 'url' => ['/content']],
                     ['label' => 'Gallery', 'icon' => 'photo', 'url' => ['/galeri']],
-                    // ['label' => 'Booking', 'icon' => 'pencil', 'url' => ['/booking']],
+                    ['label' => 'Booking', 'icon' => 'calendar', 'url' => ['/booking']],
                     ['label' => 'Data Master', 'options' => ['class' => 'header']],
                     // ['label' => 'Data Kamar', 'icon' => 'bed', 'url' => ['/kamar']],
                     [
@@ -96,7 +96,7 @@
                     ['label' => 'Home', 'icon' => 'home', 'url' => ['/']], 
                     ['label' => 'Content', 'icon' => 'file', 'url' => ['/content']],
                     ['label' => 'Gallery', 'icon' => 'photo', 'url' => ['/galeri']],
-                    // ['label' => 'Booking', 'icon' => 'pencil', 'url' => ['/booking']],
+                    ['label' => 'Booking', 'icon' => 'calendar', 'url' => ['/booking']],
                     ['label' => 'Data Master', 'options' => ['class' => 'header']],
                     // ['label' => 'Data Kamar', 'icon' => 'bed', 'url' => ['/kamar']],
                     [
