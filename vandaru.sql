@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2020 at 01:28 AM
+-- Generation Time: Feb 19, 2020 at 08:20 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -59,7 +59,7 @@ CREATE TABLE `content` (
 --
 
 INSERT INTO `content` (`content_id`, `content_judul`, `content_isi`, `created_by`, `created_date`, `updated_by`, `updated_date`, `status`, `file`) VALUES
-(1, '<p>test berita</p>\r\n', '<p>berita ini merupakan test</p>\r\n', 'admin', '2020-02-11', '', NULL, 'Aktif', 'berita/_1581356727.png');
+(1, 'test berita', '<p>berita ini merupakan test</p>\r\n', 'admin', '2020-02-11', 'admin', '2020-02-17', 'Aktif', 'berita/_1581356727.png');
 
 -- --------------------------------------------------------
 
@@ -102,7 +102,8 @@ INSERT INTO `foto_galeri` (`id`, `id_galeri`, `nama_foto`, `Keterangan_foto`, `f
 (4, 4, 'fligt_1581349307.png', '', '/foto_galeri/fligt_1581349307.png', 'admin', '2020-02-10', '', '0000-00-00', 'Aktif'),
 (5, 3, 'f_1581425046.jpg', '', '/foto_galeri/f_1581425046.jpg', 'admin', '2020-02-11', '', '0000-00-00', 'Aktif'),
 (6, 4, 'tiket_1581443870.png', '', '/foto_galeri/tiket_1581443870.png', 'admin', '2020-02-12', '', '0000-00-00', 'Aktif'),
-(7, 4, 'txi_1581443870.png', '', '/foto_galeri/txi_1581443870.png', 'admin', '2020-02-12', '', '0000-00-00', 'Aktif');
+(7, 4, 'txi_1581443870.png', '', '/foto_galeri/txi_1581443870.png', 'admin', '2020-02-12', '', '0000-00-00', 'Aktif'),
+(8, 3, 'txi_1581443870.png', '', '/foto_galeri/txi_1581443870.png', 'admin', '2020-02-12', '', '0000-00-00', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -169,6 +170,7 @@ CREATE TABLE `kamar` (
   `kamar_type` varchar(30) NOT NULL,
   `kamar_harga` int(11) DEFAULT NULL,
   `kamar_deskripsi` text,
+  `kamar_foto` text,
   `created_by` varchar(100) DEFAULT NULL,
   `created_date` date DEFAULT NULL,
   `updated_by` varchar(100) DEFAULT NULL,
@@ -180,8 +182,10 @@ CREATE TABLE `kamar` (
 -- Dumping data for table `kamar`
 --
 
-INSERT INTO `kamar` (`kamar_id`, `kamar_nama`, `kamar_type`, `kamar_harga`, `kamar_deskripsi`, `created_by`, `created_date`, `updated_by`, `updated_date`, `kamar_status`) VALUES
-(3, 'Melati room', 'President Suite', 1000000, '<p>Kamar Besar......</p>\r\n', 'admin', '2020-02-12', '', NULL, 'Tersedia');
+INSERT INTO `kamar` (`kamar_id`, `kamar_nama`, `kamar_type`, `kamar_harga`, `kamar_deskripsi`, `kamar_foto`, `created_by`, `created_date`, `updated_by`, `updated_date`, `kamar_status`) VALUES
+(3, 'Melati room', 'President Suite', 1000000, '<p>Kamar Besar......</p>\r\n', '/foto_galeri/flig_1581349307.jpg', 'admin', '2020-02-12', '', NULL, 'Tersedia'),
+(4, 'Mawar room', 'President Suite', 1000000, '<p>Kamar Besar......</p>\r\n', '/foto_galeri/flig_1581349307.jpg', 'admin', '2020-02-12', '', NULL, 'Tersedia'),
+(5, 'Tulip room', 'President Suite', 1000000, '<p>Kamar Besar......</p>\r\n', '/foto_galeri/flig_1581349307.jpg', 'admin', '2020-02-12', '', NULL, 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -231,6 +235,33 @@ CREATE TABLE `pembayaran` (
   `pembayaran_resi` text NOT NULL,
   `status` enum('Belum','Sudah') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `setting`
+--
+
+CREATE TABLE `setting` (
+  `id_setting` int(11) NOT NULL,
+  `setting_nama` varchar(100) DEFAULT NULL,
+  `setting_alamat` varchar(200) DEFAULT NULL,
+  `setting_email` varchar(100) DEFAULT NULL,
+  `setting_phone` varchar(100) DEFAULT NULL,
+  `setting_fax` varchar(100) DEFAULT NULL,
+  `setting_facebook` varchar(100) DEFAULT NULL,
+  `setting_instagram` varchar(100) DEFAULT NULL,
+  `setting_whatsapp` varchar(100) DEFAULT NULL,
+  `latitudeP` text,
+  `longitudeP` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `setting`
+--
+
+INSERT INTO `setting` (`id_setting`, `setting_nama`, `setting_alamat`, `setting_email`, `setting_phone`, `setting_fax`, `setting_facebook`, `setting_instagram`, `setting_whatsapp`, `latitudeP`, `longitudeP`) VALUES
+(1, 'Vandaru', 'Jl. Pekanbaru', 'vandaru@gmail.com', '085421242', '0762421251', 'http://facebook.com', 'http://instagram.com', 'http://whatsapp', '0.5237665979874837', '101.46408318848262');
 
 -- --------------------------------------------------------
 
@@ -336,6 +367,12 @@ ALTER TABLE `pembayaran`
   ADD KEY `id_booking1` (`pembayaran_id_booking`);
 
 --
+-- Indexes for table `setting`
+--
+ALTER TABLE `setting`
+  ADD PRIMARY KEY (`id_setting`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -367,7 +404,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `foto_galeri`
 --
 ALTER TABLE `foto_galeri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `foto_kamar`
 --
@@ -382,7 +419,7 @@ ALTER TABLE `galeri`
 -- AUTO_INCREMENT for table `kamar`
 --
 ALTER TABLE `kamar`
-  MODIFY `kamar_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `kamar_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `pelanggan`
 --
@@ -393,6 +430,11 @@ ALTER TABLE `pelanggan`
 --
 ALTER TABLE `pembayaran`
   MODIFY `pembayaran_id` int(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `setting`
+--
+ALTER TABLE `setting`
+  MODIFY `id_setting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`
 --

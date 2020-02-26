@@ -40,7 +40,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'last_name',
             'gender',
             'hp',
-            'role',
+            // 'role',
+            [
+                'attribute' => 'Role',
+                'value' => function($model){
+                    if ($model->role == 1){
+                        return 'Super Admin';
+                    }else{
+                        return 'Admin';
+                    }
+                }
+            ],
             // 'created_at',
             // 'updated_at',
         ],
