@@ -47,11 +47,11 @@ class Pelanggan extends \yii\db\ActiveRecord
     {
         return [
             'pelanggan_id' => 'Pelanggan ID',
-            'pelanggan_nama' => 'Pelanggan Nama',
-            'pelanggan_jk' => 'Pelanggan Jk',
-            'pelanggan_alamat' => 'Pelanggan Alamat',
-            'pelanggan_tgl_lahir' => 'Pelanggan Tgl Lahir',
-            'pelanggan_no_hp' => 'Pelanggan No Hp',
+            'pelanggan_nama' => 'Nama',
+            'pelanggan_jk' => 'Jenis Kelamin',
+            'pelanggan_alamat' => 'Alamat',
+            'pelanggan_tgl_lahir' => 'Tanggal Lahir',
+            'pelanggan_no_hp' => 'No Hp',
         ];
     }
 

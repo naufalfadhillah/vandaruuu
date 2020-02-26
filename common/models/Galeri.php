@@ -51,8 +51,8 @@ class Galeri extends \yii\db\ActiveRecord
     {
         return [
             'galeri_id' => 'Galeri ID',
-            'galeri_nama' => 'Galeri Nama',
-            'galeri_keterangan' => 'Galeri Keterangan',
+            'galeri_nama' => 'Nama Galeri',
+            'galeri_keterangan' => 'Keterangan',
             'created_by' => 'Created By',
             'created_date' => 'Created Date',
             'updated_by' => 'Updated By',

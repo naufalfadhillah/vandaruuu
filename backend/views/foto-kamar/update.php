@@ -8,8 +8,8 @@ use yii\helpers\Url;
 
 $this->title = 'Update Foto Kamar: ' . $model->foto_kamar;
 $this->params['breadcrumbs'][] = ['label' => 'Kamar', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $kamar->kamar_nama, 'url' => Url::to(['kamar/view', 'id' => $kamar->kamar_id])];
-$this->params['breadcrumbs'][] = ['label' => $model->foto_kamar, 'url' => ['view', 'id' => $model->foto_id_foto,'kamar'=> $kamar->kamar_id ]];
+$this->params['breadcrumbs'][] = ['label' => $tipe->tipe_nama, 'url' => Url::to(['tipe/view', 'id' => $tipe->tipe_id])];
+$this->params['breadcrumbs'][] = ['label' => $model->foto_kamar, 'url' => ['view', 'id' => $model->foto_id_foto,'tipe'=> $tipe->tipe_id ]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="foto-kamar-update">

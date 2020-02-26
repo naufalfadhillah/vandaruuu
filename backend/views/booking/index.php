@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'booking_tgl_pesan',
             //'booking_tgl_check_in',
             //'booking_status',
+            //'booking_harga',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

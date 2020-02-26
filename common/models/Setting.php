@@ -48,14 +48,14 @@ class Setting extends \yii\db\ActiveRecord
     {
         return [
             'id_setting' => 'Id Setting',
-            'setting_nama' => 'Setting Nama',
-            'setting_alamat' => 'Setting Alamat',
-            'setting_email' => 'Setting Email',
-            'setting_phone' => 'Setting Phone',
-            'setting_fax' => 'Setting Fax',
-            'setting_facebook' => 'Setting Facebook',
-            'setting_instagram' => 'Setting Instagram',
-            'setting_whatsapp' => 'Setting Whatsapp',
+            'setting_nama' => 'Nama Penginapam',
+            'setting_alamat' => 'Alamat Penginapan',
+            'setting_email' => 'Email',
+            'setting_phone' => 'Phone',
+            'setting_fax' => 'Fax',
+            'setting_facebook' => 'Facebook',
+            'setting_instagram' => 'Instagram',
+            'setting_whatsapp' => 'Whatsapp',
             'latitudeP' => 'Latitude P',
             'longitudeP' => 'Longitude P',
         ];

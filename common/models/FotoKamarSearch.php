@@ -17,7 +17,7 @@ class FotoKamarSearch extends FotoKamar
     public function rules()
     {
         return [
-            [['foto_id_foto', 'foto_id_kamar'], 'integer'],
+            [['foto_id_foto', 'foto_id_tipe'], 'integer'],
             [['foto_kamar', 'file', 'created_by', 'created_date', 'updated_by', 'updated_date', 'status'], 'safe'],
         ];
     }
@@ -59,7 +59,7 @@ class FotoKamarSearch extends FotoKamar
         // grid filtering conditions
         $query->andFilterWhere([
             'foto_id_foto' => $this->foto_id_foto,
-            'foto_id_kamar' => $this->foto_id_kamar,
+            'foto_id_tipe' => $this->foto_id_tipe,
             'created_date' => $this->created_date,
             'updated_date' => $this->updated_date,
         ]);

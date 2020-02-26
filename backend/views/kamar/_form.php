@@ -17,45 +17,20 @@ use kartik\file\FileInput;
 
     <?= $form->field($model, 'kamar_nama')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'kamar_type')->textInput(['maxlength' => true]) ?>
-
-    <?php // $form->field($model, 'kamar_harga')->textInput() ?>
-    <?= $form->field($model, 'kamar_harga')->widget(MaskMoney::classname(), [
-            'name' => 'amount_german',
-            'value' => 0,
-            'pluginOptions' => [
-                'prefix' => 'Rp ',
-                'thousands' => '.',
-                'decimal' => ',',
-                'precision' => 0
-            ],
-     ])?>
-
-    <?php // $form->field($model, 'kamar_deskripsi')->textarea(['rows' => 6]) ?>
-    <?= $form->field($model, 'kamar_deskripsi')->widget(CKEditor::className(),[
-        'preset' => 'full',
-        'clientOptions' => [
-            'filebrowserUploadUrl' => 'site/url']
-    ]);?>
-
-    <?php // $form->field($model, 'filesaver[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label('Foto') ?>
-    <?= $form->field($model, 'filesaver[]')->widget(FileInput::className(),[
-        'options' => ['multiple'=>true, 'accept' => 'image/*'],
-        'pluginOptions' => [
-            'showRemove'=> true,
-            'showUpload' => false,
-            'showCancel' => false,
-            'overwriteInitial' => false,
-            // 'initialPreviewConfig' => $json,
-            'previewFileType' => 'image',
-            // 'initialPreview' => $img,
-            // 'uploadAsync'=> true,
-            // 'maxFileSize' => 3*1024*1024,
-            // 'deleteUrl' => Url::to(['/file/delete-upload']),
-            'allowedExtensions' => ['jpg','png','jpeg'],
-            'maxFileCount'=> 10,
-        ]
-     ])->label('Foto')?>
+    <?php // $form->field($model, 'kamar_tipe')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'kamar_tipe')->widget(\kartik\select2\Select2::className(), [
+                'data' => \yii\helpers\ArrayHelper::map(\common\models\Tipe::find()->all(), 'tipe_id', 'tipe_nama'),
+                'language' => 'en',
+                'options' => [
+                    'placeholder' => 'Pilih Tipe',
+                    'onchange' => '$.post("index.php?r=tipe&id='.'"+$(this).val(), function(data) {
+                $("select#tipeid").html(data);
+                });'
+                ],
+                'pluginOptions' => [
+                    'allowClear' => true
+                ],
+            ]) ?>
 
     <?= $form->field($model, 'created_by')->hiddenInput(['maxlength' => true])->label(false) ?>
 

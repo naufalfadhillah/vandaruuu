@@ -50,8 +50,8 @@ class Content extends \yii\db\ActiveRecord
     {
         return [
             'content_id' => 'Content ID',
-            'content_judul' => 'Content Judul',
-            'content_isi' => 'Content Isi',
+            'content_judul' => 'Judul',
+            'content_isi' => 'Isi Content',
             'created_by' => 'Created By',
             'created_date' => 'Created Date',
             'updated_by' => 'Updated By',

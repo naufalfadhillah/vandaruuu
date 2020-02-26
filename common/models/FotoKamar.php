@@ -36,8 +36,8 @@ class FotoKamar extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['foto_id_kamar'], 'required'],
-            [['foto_id_kamar'], 'integer'],
+            [['foto_id_tipe'], 'required'],
+            [['foto_id_tipe'], 'integer'],
             [['filesaver'], 'file', 'maxFiles' => 10, 'extensions' => 'png, jpg, jpeg'],
             [['filesaver2'], 'file'],
             [['foto_kamar', 'file'], 'string'],
@@ -53,8 +53,8 @@ class FotoKamar extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'foto_id_foto' => 'Foto Id Foto',
-            'foto_id_kamar' => 'Foto Id Kamar',
+            'foto_id_foto' => 'id Foto',
+            'foto_id_tipe' => 'id tipe',
             'foto_kamar' => 'Foto Kamar',
             'file' => 'File',
             'created_by' => 'Created By',
@@ -68,8 +68,8 @@ class FotoKamar extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getFotoIdKamar()
+    public function getFotoIdTipe()
     {
-        return $this->hasOne(Kamar::className(), ['kamar_id' => 'foto_id_kamar']);
+        return $this->hasOne(Tipe::className(), ['tipe_id' => 'foto_id_tipe']);
     }
 }

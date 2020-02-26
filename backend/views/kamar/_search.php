@@ -19,11 +19,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'kamar_nama') ?>
 
-    <?= $form->field($model, 'kamar_type') ?>
+    <?= $form->field($model, 'kamar_tipe') ?>
 
-    <?= $form->field($model, 'kamar_harga') ?>
+    <?php // $form->field($model, 'kamar_harga') ?>
 
-    <?= $form->field($model, 'kamar_deskripsi') ?>
+    <?php // $form->field($model, 'kamar_deskripsi') ?>
 
     <?php // echo $form->field($model, 'created_by') ?>
 

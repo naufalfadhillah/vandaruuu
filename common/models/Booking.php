@@ -9,13 +9,13 @@ use Yii;
  *
  * @property int $booking_id
  * @property int $booking_id_pelanggan
- * @property int $booking_id_kamar
+ * @property string $booking_id_kamar
  * @property int $booking_durasi
  * @property string $booking_tgl_pesan
  * @property string $booking_tgl_check_in
  * @property string $booking_status
+ * @property string $booking_harga
  *
- * @property Kamar $bookingIdKamar
  * @property Pelanggan $bookingIdPelanggan
  * @property Feedback[] $feedbacks
  * @property Pembayaran[] $pembayarans
@@ -36,11 +36,11 @@ class Booking extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['booking_id_pelanggan', 'booking_id_kamar', 'booking_durasi', 'booking_tgl_check_in', 'booking_status'], 'required'],
-            [['booking_id_pelanggan', 'booking_id_kamar', 'booking_durasi'], 'integer'],
+            [['booking_id_pelanggan', 'booking_id_kamar', 'booking_durasi', 'booking_tgl_check_in', 'booking_status', 'booking_harga'], 'required'],
+            [['booking_id_pelanggan', 'booking_durasi', 'booking_harga'], 'integer'],
             [['booking_tgl_pesan', 'booking_tgl_check_in'], 'safe'],
             [['booking_status'], 'string'],
-            [['booking_id_kamar'], 'exist', 'skipOnError' => true, 'targetClass' => Kamar::className(), 'targetAttribute' => ['booking_id_kamar' => 'kamar_id']],
+            [['booking_id_kamar'], 'string', 'max' => 100],
             [['booking_id_pelanggan'], 'exist', 'skipOnError' => true, 'targetClass' => Pelanggan::className(), 'targetAttribute' => ['booking_id_pelanggan' => 'pelanggan_id']],
         ];
     }
@@ -52,21 +52,14 @@ class Booking extends \yii\db\ActiveRecord
     {
         return [
             'booking_id' => 'Booking ID',
-            'booking_id_pelanggan' => 'Booking Id Pelanggan',
-            'booking_id_kamar' => 'Booking Id Kamar',
-            'booking_durasi' => 'Booking Durasi',
-            'booking_tgl_pesan' => 'Booking Tgl Pesan',
-            'booking_tgl_check_in' => 'Booking Tgl Check In',
-            'booking_status' => 'Booking Status',
+            'booking_id_pelanggan' => 'Pelanggan',
+            'booking_id_kamar' => 'Kamar',
+            'booking_durasi' => 'Durasi Booking',
+            'booking_tgl_pesan' => 'Tanggal Pemesanan',
+            'booking_tgl_check_in' => 'Tanggal Check In',
+            'booking_status' => 'Status',
+            'booking_harga' => 'Harga',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBookingIdKamar()
-    {
-        return $this->hasOne(Kamar::className(), ['kamar_id' => 'booking_id_kamar']);
     }
 
     /**

@@ -15,7 +15,7 @@ use kartik\file\FileInput;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'foto_id_kamar')->hiddenInput(['maxlength' => true])->label(false) ?>
+    <?= $form->field($model, 'foto_id_tipe')->hiddenInput(['maxlength' => true])->label(false) ?>
 
     <?= $form->field($model, 'foto_kamar')->textInput(['maxlength' => true]) ?>
 

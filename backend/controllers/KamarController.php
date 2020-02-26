@@ -51,6 +51,7 @@ class KamarController extends Controller
     {
         $searchModel = new KamarSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->pagination = ['pageSize' => 10,];
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -66,13 +67,8 @@ class KamarController extends Controller
      */
     public function actionView($id)
     {
-        $searchModel = new FotoKamarSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->query->andWhere(['foto_id_kamar' => $id]);
-        return $this->render('view', [
+        return $this->renderajax('view', [
             'model' => $this->findModel($id),
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -90,34 +86,13 @@ class KamarController extends Controller
         // }
         if ($model->load(Yii::$app->request->post())) {
             $model->created_by = Yii::$app->user->identity->username;
-		    $model->created_date = date("Y-m-d");
-
+            $model->created_date = date("Y-m-d");
+            
             $model->save();
-   
-            if ($model->validate()) {
-                if (UploadedFile::getInstances($model, 'filesaver') != null) {
-                    $names = UploadedFile::getInstances($model, 'filesaver');
-                    $kamar = $model->kamar_id;
-                    $creator_name = Yii::$app->user->identity->username;
-                    $creator_date = date("Y-m-d");
-                    $status = 'Aktif';
-                    foreach ($names as $name) {
-                        $timestamp = time();
-                        $path = Yii::$app->basePath . '/web/foto_kamar/' .$name->baseName.'_'.$timestamp.'.'.$name->extension;
-                        if ($name->saveAs($path)) {
-                            $nama_foto = $name->baseName.'_'.$timestamp.'.'.$name->extension;
-                            $file = '/foto_kamar/' .$name->baseName.'_'.$timestamp.'.'.$name->extension;
-                            Yii::$app->db->createCommand()->insert('foto_kamar', ['foto_id_kamar' => $kamar, 'foto_kamar' => $nama_foto, 'created_by' => $creator_name, 'created_date' => $creator_date, 'file' => $file, 'status' => $status])->execute();
-                        }
-                    }
-                }
-            }else{
-                return $model->getErrors();
-            }
             Yii::$app->session->setFlash('success', 'Data berhasil ditambah.');
-            return $this->redirect(['view', 'id' => $model->kamar_id]);
+            return $this->redirect(['index']);
         }
-        return $this->render('create', [
+        return $this->renderAjax('create', [
             'model' => $model,
         ]);
     }
@@ -141,10 +116,10 @@ class KamarController extends Controller
             $model->updated_by = Yii::$app->user->identity->username;
        	    $model->updated_date = date("Y-m-d");
             $model->save();
-            return $this->redirect(['view', 'id' => $model->kamar_id]);
+            return $this->redirect(['index']);
         }
 
-        return $this->render('update', [
+        return $this->renderAjax('update', [
             'model' => $model,
         ]);
     }

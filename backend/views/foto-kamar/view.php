@@ -9,7 +9,7 @@ use yii\helpers\Url;
 
 $this->title = $model->foto_kamar;
 $this->params['breadcrumbs'][] = ['label' => 'Kamar', 'url' => ['kamar/index']];
-$this->params['breadcrumbs'][] = ['label' => $kamar->kamar_nama, 'url' => Url::to(['kamar/view', 'id' => $kamar->kamar_id])];
+$this->params['breadcrumbs'][] = ['label' => $tipe->tipe_nama, 'url' => Url::to(['tipe/view', 'id' => $tipe->tipe_id])];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'foto_id_foto',
-            'foto_id_kamar',
+            'foto_id_tipe',
             'foto_kamar:ntext',
             // 'file:ntext',
             [

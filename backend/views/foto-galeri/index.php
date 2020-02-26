@@ -45,9 +45,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'keterangan_foto',
                 'format' => 'html',    
                 'value' => function ($data) {
-                    if (strlen($data->keterangan_foto) > 200) {
-                        return substr($data->keterangan_foto, 0, 200) . '. . . . .';
-                    } else return $data->keterangan_foto;
+                    if (strlen($data->Keterangan_foto) > 200) {
+                        return substr($data->Keterangan_foto, 0, 200) . '. . . . .';
+                    } else return $data->Keterangan_foto;
                 },
             ],
             [

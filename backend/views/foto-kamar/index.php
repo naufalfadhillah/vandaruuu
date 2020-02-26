@@ -28,8 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'foto_id_foto',
             // 'foto_id_kamar',
             [
-                'attribute' => 'foto_id_kamar',
-                'value' => 'kamar.kamar_nama'
+                'attribute' => 'foto_id_tipe',
+                'value' => function($model){
+                    return \common\models\Tipe::findOne($model->foto_id_tipe)['tipe_nama'];
+                }
             ],
             'foto_kamar:ntext',
             // 'file:ntext',

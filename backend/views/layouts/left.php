@@ -37,7 +37,17 @@
                     ['label' => 'Gallery', 'icon' => 'photo', 'url' => ['/galeri']],
                     // ['label' => 'Booking', 'icon' => 'pencil', 'url' => ['/booking']],
                     ['label' => 'Data Master', 'options' => ['class' => 'header']],
-                    ['label' => 'Data Kamar', 'icon' => 'bed', 'url' => ['/kamar']],
+                    // ['label' => 'Data Kamar', 'icon' => 'bed', 'url' => ['/kamar']],
+                    [
+                        'label' => 'Data Kamar',
+                        'icon' => 'bed',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Kamar', 'icon' => 'circle-o', 'url' => ['/kamar'],],
+                            ['label' => 'Tipe', 'icon' => 'circle-o', 'url' => ['/tipe'],],
+                            ['label' => 'Fasilitas', 'icon' => 'circle-o', 'url' => ['/fasilitas'],],
+                       ],
+                    ],
                     ['label' => 'Configuration', 'options' => ['class' => 'header']],
                     ['label' => 'Users', 'icon' => 'users', 'url' => ['/user']],
                     ['label' => 'Settings', 'icon' => 'gear', 'url' => ['/setting']],
@@ -70,7 +80,7 @@
                     //             ],
                     //        ],
                     //    ],
-                    //],
+                    // ],
                 ],
             ]
         ) ?>
@@ -88,7 +98,17 @@
                     ['label' => 'Gallery', 'icon' => 'photo', 'url' => ['/galeri']],
                     // ['label' => 'Booking', 'icon' => 'pencil', 'url' => ['/booking']],
                     ['label' => 'Data Master', 'options' => ['class' => 'header']],
-                    ['label' => 'Data Kamar', 'icon' => 'bed', 'url' => ['/kamar']],
+                    // ['label' => 'Data Kamar', 'icon' => 'bed', 'url' => ['/kamar']],
+                    [
+                        'label' => 'Data Kamar',
+                        'icon' => 'bed',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Kamar', 'icon' => 'file-code-o', 'url' => ['/kamar'],],
+                            ['label' => 'Tipe', 'icon' => 'file-code-o', 'url' => ['/tipe'],],
+                            ['label' => 'Fasilitas', 'icon' => 'file-code-o', 'url' => ['/fasilitas'],],
+                       ],
+                    ],
                 ],
             ]
         ) ?>

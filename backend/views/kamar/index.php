@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\KamarSearch */
@@ -16,8 +17,19 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Kamar', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('Create Kamar', ['value'=> Url::to(['create']), 'class' => 'showModalButton btn btn-success']) ?>
     </p>
+
+    <?php
+        yii\bootstrap\Modal::begin([
+            
+            'id' => 'modal',
+            'size' => 'modal-lg',   
+            'clientOptions' => ['backdrop' => 'static', 'keyboard' => FALSE]
+        ]);
+        echo "<div id='modalContent'></div>";
+        yii\bootstrap\Modal::end();
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -27,11 +39,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
             // 'kamar_id',
             'kamar_nama',
-            'kamar_type',
-            'kamar_harga',
+            // 'kamar_tipe',
+            [
+                'attribute' => 'Tipe Kamar',
+                'value' => function($model){
+                    return \common\models\Tipe::findOne($model->kamar_tipe)['tipe_nama'];
+                }
+        ],
+            // 'kamar_harga',
             // 'kamar_deskripsi:ntext',
             //'kamar_foto:ntext',
-            //'kamar_status',
+            'kamar_status',
 
             ['class' => 'yii\grid\ActionColumn',
             'contentOptions' => ['style' => 'widget:100px, align:center;'],
@@ -39,19 +57,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'template' => '{view} &nbsp {update} &nbsp {delete}',
             'buttons' => [
                     'view' => function($url, $model, $key){
-                        return Html::a('<i class ="glyphicon glyphicon-eye-open"></i>',['view', 'id'=>$model->kamar_id], [
-                            'class' => 'btn btn-success btn-xs'
+                        return Html::button('<i class ="glyphicon glyphicon-eye-open"></i>',['value'=> Url::to(['kamar/view', 'id'=>$model->kamar_id]), 'class' => 'showModalButton btn btn-info btn-xs'
                         ]);
                     },
                     'update' => function($url, $model, $key) {
-                        return Html::a('<i class ="glyphicon glyphicon-pencil"></i> ', ['update', 'id'=>$model->kamar_id], [
-                            'class' => 'btn btn-primary btn-xs',
+                        return Html::button('<i class ="glyphicon glyphicon-pencil"></i> ',['value'=> Url::to(['kamar/update', 'id'=>$model->kamar_id]), 'class' => 'showModalButton btn btn-primary btn-xs'
                             ]);
                     },
                     'delete' => function($url, $model, $key){
-                        return Html::a('<i class = "glyphicon glyphicon-trash"></i>',['delete', 'id'=>$model->kamar_id], [
-                            'class' => 'btn btn-warning btn-xs',
-                        ]);
+                        return Html::a('<span class = "glyphicon glyphicon-trash"></span>', ['kamar/delete', 'id'=>$model->kamar_id],['class' => 'btn btn-danger btn-xs',
+                            'data' => [
+                                'confirm' => 'Apa Anda Ingin Menghapus Item Ini?',
+                                'method' => 'post',
+                            ],]);
                     }
             ]
         ],
