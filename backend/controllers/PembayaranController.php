@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PembayaranController implements the CRUD actions for Pembayaran model.
+ * PembayaranController implements the CRUD actions for pembayaran model.
  */
 class PembayaranController extends Controller
 {
@@ -30,7 +30,7 @@ class PembayaranController extends Controller
     }
 
     /**
-     * Lists all Pembayaran models.
+     * Lists all pembayaran models.
      * @return mixed
      */
     public function actionIndex()
@@ -45,7 +45,7 @@ class PembayaranController extends Controller
     }
 
     /**
-     * Displays a single Pembayaran model.
+     * Displays a single pembayaran model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,7 +58,7 @@ class PembayaranController extends Controller
     }
 
     /**
-     * Creates a new Pembayaran model.
+     * Creates a new pembayaran model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -76,7 +76,7 @@ class PembayaranController extends Controller
     }
 
     /**
-     * Updates an existing Pembayaran model.
+     * Updates an existing pembayaran model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class PembayaranController extends Controller
     }
 
     /**
-     * Deletes an existing Pembayaran model.
+     * Deletes an existing pembayaran model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,7 +110,7 @@ class PembayaranController extends Controller
     }
 
     /**
-     * Finds the Pembayaran model based on its primary key value.
+     * Finds the pembayaran model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
      * @return Pembayaran the loaded model

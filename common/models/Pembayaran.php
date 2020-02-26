@@ -46,11 +46,11 @@ class Pembayaran extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'pembayaran_id' => 'Pembayaran ID',
-            'pembayaran_id_booking' => 'Pembayaran Id Booking',
-            'pembayaran_jumlah' => 'Pembayaran Jumlah',
-            'pembayaran_tgl_bayar' => 'Pembayaran Tgl Bayar',
-            'pembayaran_resi' => 'Pembayaran Resi',
+            'pembayaran_id' => 'pembayaran ID',
+            'pembayaran_id_booking' => 'pembayaran Id Booking',
+            'pembayaran_jumlah' => 'pembayaran Jumlah',
+            'pembayaran_tgl_bayar' => 'pembayaran Tgl Bayar',
+            'pembayaran_resi' => 'pembayaran Resi',
             'status' => 'Status',
         ];
     }

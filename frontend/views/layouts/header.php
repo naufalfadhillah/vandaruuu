@@ -15,7 +15,7 @@ use yii\helpers\Url;
 <body>
 <html lang="zxx">
 <div class="banner banner-2">
-    <header <?php if (Yii::$app->controller->id == 'kamar'){ echo "style='background-color: #2D2929'";}?> class="main-header main-header-2 main-header-3">
+    <header <?php if (Yii::$app->controller->id == 'kamar' || Yii::$app->controller->id == 'pembayaran' || Yii::$app->controller->id == 'kebijakan'){ echo "style='background-color: #2D2929'";}?> class="main-header main-header-2 main-header-3">
         <div class="container">
             <nav class="navbar navbar-default">
                 <div class="navbar-header">
@@ -43,7 +43,7 @@ use yii\helpers\Url;
                             <?= Html::a('Pemesanan ', ['/pemesanan'])?>
                         </li>
                         <li class="dropdown active">
-                            <?= Html::a('Pembayaran ', ['/kamar'])?>
+                            <?= Html::a('pembayaran ', ['/pembayaran'])?>
                         </li>
                         <li class="dropdown active">
                             <?= Html::a('Kebijakan & Ketentuan', ['/kebijakan'])?>
