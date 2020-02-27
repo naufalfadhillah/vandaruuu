@@ -24,7 +24,7 @@ $this->title = "Pembayaran";
                 <p style="background-color: green;color: white">
                     Pemesanan Berhasil ... <?= Yii::$app->session->getFlash('success') ?>
                 </p>
-            <?php else: ?>
+            <?php elseif(Yii::$app->session->hasFlash('warning')): ?>
                 <p style="background-color: orange;color: white">
                     Maaf ... <?= Yii::$app->session->getFlash('warning') ?>
                 </p>
@@ -47,20 +47,23 @@ $this->title = "Pembayaran";
                 <?php
                     if (Yii::$app->session->hasFlash('success')){
                         ?>
-                        <table class="table">
+                        <table class="table table-responsive">
                             <thead class="thead-dark">
                             <tr>
 
                                 <th scope="col">Nama</th>
                                 <th scope="col">Nomor HP</th>
                                 <th scope="col">Tanggal Pesan</th>
+                                <th scope="col">Durasi</th>
                                 <th scope="col">Tanggal Check In</th>
                                 <th scope="col">Jumlah Pembayaran</th>
                             </tr>
                             <tr>
                                 <td><?= $pelanggan['pelanggan_nama']?></td>
                                 <td><?= $pelanggan['pelanggan_no_hp']?></td>
+
                                 <td><?= $pesan['booking_tgl_pesan']?></td>
+                                <td><?= $pesan['booking_durasi']?> Hari</td>
                                 <td><?= $pesan['booking_tgl_check_in']?></td>
                                 <td>Rp. <?= $pesan['booking_harga']?></td>
                             </tr>
