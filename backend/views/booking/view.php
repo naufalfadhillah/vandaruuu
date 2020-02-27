@@ -47,6 +47,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="box box-primary">
             <div class="box-header with-border">
                 <h3 class="prod_title">Booking ID : <?= $model->booking_id ?></h3>
+                <h5 class="prod_title">Tanggal Pesan : <?= date('d F Y', strtotime($model->booking_tgl_pesan ))?> </h5>
+                <h5 class="prod_title">Lama Menginap : <?= $model->booking_durasi ?> Hari</h5>
+                <h5 class="prod_title">Tanggal Check in : <?= date('d F Y', strtotime($model->booking_tgl_check_in)) ?> </h5>
             </div>
             <div class="box-body">
                 <h4>Data Pelanggan</h4>

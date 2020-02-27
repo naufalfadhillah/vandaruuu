@@ -59,20 +59,29 @@ class PembayaranController extends Controller
     }
     public function actionBayar(){
         $pembayaran = new Pembayaran();
-
         $booking = new Booking();
-
+        
         if ($pembayaran->load(Yii::$app->request->post())) {
             $gambar = UploadedFile::getInstance($pembayaran,'pembayaran_resi');
             $pemesanan = Booking::findOne($pembayaran['pembayaran_id_booking']);
             $pelanggan = Pelanggan::findOne($pemesanan['booking_id_pelanggan']);
             $kamar = explode(",",$pemesanan['booking_id_kamar']);
             $pembayaran->status = "sudah";
+
+            
             if($pembayaran->validate()){
                 $pembayaran->save();
+                $idP = $pelanggan->pelanggan_id;
+                $tgl = date("Y-m-d");
+                $timestamp = time();
+                $idbooking = $pembayaran->pembayaran_id_booking;
+                
+                $path = Yii::getAlias('@backend/web/foto_resi/') .'IMG_vandaruresi'.$idP.$tgl.$timestamp.'_'.$idbooking.'.'.$gambar->extension;
+                // print_r($path);
+                // exit();
                 if (!empty($gambar)) {
-                    $gambar->saveAs(Yii::getAlias('@frontend/web/img/') . 'resi.' . $gambar->extension);
-                    $pembayaran->pembayaran_resi = 'gambar.' . $gambar->extension;
+                    $gambar->saveAs($path);
+                    $pembayaran->pembayaran_resi = '/foto_resi/' .'IMG_vandaruresi'.$idP.$tgl.$timestamp.'_'.$idbooking.'.'.$gambar->extension;
                     $pembayaran->save(FALSE);
                 }
             }
