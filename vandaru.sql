@@ -33,7 +33,7 @@ CREATE TABLE `booking` (
   `booking_durasi` int(11) NOT NULL,
   `booking_tgl_pesan` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `booking_tgl_check_in` datetime NOT NULL,
-  `booking_status` enum('Menunggu Pembayaran','Sudah dibayar','Dibatalkan') NOT NULL
+  `booking_status` enum('Menunggu pembayaran','Sudah dibayar','Dibatalkan') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

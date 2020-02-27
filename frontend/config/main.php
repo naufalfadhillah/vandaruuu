@@ -46,6 +46,8 @@ return [
                 'detail'=>'site/detail',
                 'kebijakan'=>'site/kebijakan',
                 'pemesanan'=>'kamar/pesan',
+                'pembayaran'=>'pembayaran/index',
+                'fix_bayar'=>'pembayaran/bayar'
 //                'kamar/rincian'=>'detail/index',
 //                'rincian/<id:\d+>'=>'kamar/detail',
             ],

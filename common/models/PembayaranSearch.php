@@ -7,7 +7,7 @@ use yii\data\ActiveDataProvider;
 use common\models\Pembayaran;
 
 /**
- * PembayaranSearch represents the model behind the search form of `common\models\Pembayaran`.
+ * PembayaranSearch represents the model behind the search form of `common\models\pembayaran`.
  */
 class PembayaranSearch extends Pembayaran
 {

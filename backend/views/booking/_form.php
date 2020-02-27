@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'booking_tgl_check_in')->textInput() ?>
 
-    <?= $form->field($model, 'booking_status')->dropDownList([ 'Menunggu Pembayaran' => 'Menunggu Pembayaran', 'Sudah dibayar' => 'Sudah dibayar', 'Dibatalkan' => 'Dibatalkan', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'booking_status')->dropDownList([ 'Menunggu pembayaran' => 'Menunggu pembayaran', 'Sudah dibayar' => 'Sudah dibayar', 'Dibatalkan' => 'Dibatalkan', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'booking_harga')->textInput(['maxlength' => true]) ?>
 

@@ -25,58 +25,9 @@ $model2 = FotoGaleri::find()->all();
                     <div class="main-title-2">
                             <h1>Lokasi</h1>
                         </div>
-                        <div id="map"></div>
+                        <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.0867115044193!2d110.33844931477326!3d-6.999069994944016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708aa29cbb7bcf%3A0x79425c4d29c9c5af!2sRumah%20Vandaroe%20Penginapan%20Harian%2CMingguan%20-%20Kost%20%26%20Paviliun%20Bulanan!5e0!3m2!1sid!2sid!4v1582559113564!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
 
-                        <script>
-                            function initMap() {
 
-                                var locations = [
-                                    <?php //
-                                        // $n = 0;
-                                        // foreach($dataProvider AS $model){
-                                       // ?>
-                                        ['<strong><?= $model->setting_nama ?></strong><br>Alamat: \
-                                        <?= $model->setting_alamat ?><br>Nomor HP: <?= $model->setting_phone ?><br><?= $model->setting_fax?>',
-                                        <?= $model->latitudeP ?>, <?= $model->longitudeP ?>],
-                                    <?php // } ?>
-                                ];
-                                var iconBase = '<?= Yii::$app->request->baseUrl ?>/img/';
-                                var icons = iconBase + 'icon.png';
-                                
-                                var map = new google.maps.Map(document.getElementById('map'), {
-                                    zoom: 8,
-
-                                    center: new google.maps.LatLng(0.506381, 101.446577),
-                                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                                });
-
-                                var infowindow = new google.maps.InfoWindow({});
-
-                                var marker, i;
-
-                                for (i = 0; i < locations.length; i++) {
-                                    marker = new google.maps.Marker({
-                                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                                        icon: icons,
-                                        map: map
-                                    });
-
-                                    google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                                        return function () {
-                                            //alert('Latitude:'+ event.latLng.lat()+' '+' , Longitude:'+event.latLng.lng());
-                                            infowindow.setContent(locations[i][0]);
-                                            infowindow.open(map, marker);
-                                        }
-                                    })(marker, i));
-                                }
-                        //            google.maps.event.addListener(map,'click',function(event){
-                        //                marker = new google.maps.Marker({position: event.latLng});
-                        //                alert('Latitude:'+ event.latLng.lat()+' '+' , Longitude:'+event.latLng.lng());
-                        //            });
-                            }
-                        </script>
-                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYfcArGhWPhdYiMAULigrL0336mSoO6GE&callback=initMap"
-                                async defer></script>
                     </div>
                 </div>
                 <!-- Contact Us -->
