@@ -35,7 +35,8 @@ class Pembayaran extends \yii\db\ActiveRecord
             [['pembayaran_id_booking', 'pembayaran_jumlah', 'pembayaran_resi', 'status'], 'required'],
             [['pembayaran_id_booking', 'pembayaran_jumlah'], 'integer'],
             [['pembayaran_tgl_bayar'], 'safe'],
-            [['pembayaran_resi', 'status'], 'string'],
+            [[ 'status'], 'string'],
+            [['pembayaran_resi'],'file','skipOnEmpty'=>TRUE,'extensions'=>'jpg, png'],
             [['pembayaran_id_booking'], 'exist', 'skipOnError' => true, 'targetClass' => Booking::className(), 'targetAttribute' => ['pembayaran_id_booking' => 'booking_id']],
         ];
     }
@@ -46,11 +47,11 @@ class Pembayaran extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'pembayaran_id' => 'Pembayaran ID',
-            'pembayaran_id_booking' => 'Pembayaran Id Booking',
-            'pembayaran_jumlah' => 'Pembayaran Jumlah',
-            'pembayaran_tgl_bayar' => 'Pembayaran Tgl Bayar',
-            'pembayaran_resi' => 'Pembayaran Resi',
+            'pembayaran_id' => 'pembayaran ID',
+            'pembayaran_id_booking' => 'pembayaran Id Booking',
+            'pembayaran_jumlah' => 'pembayaran Jumlah',
+            'pembayaran_tgl_bayar' => 'pembayaran Tgl Bayar',
+            'pembayaran_resi' => 'pembayaran Resi',
             'status' => 'Status',
         ];
     }
