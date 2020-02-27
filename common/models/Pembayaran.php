@@ -35,7 +35,8 @@ class Pembayaran extends \yii\db\ActiveRecord
             [['pembayaran_id_booking', 'pembayaran_jumlah', 'pembayaran_resi', 'status'], 'required'],
             [['pembayaran_id_booking', 'pembayaran_jumlah'], 'integer'],
             [['pembayaran_tgl_bayar'], 'safe'],
-            [['pembayaran_resi', 'status'], 'string'],
+            [[ 'status'], 'string'],
+            [['pembayaran_resi'],'file','skipOnEmpty'=>TRUE,'extensions'=>'jpg, png'],
             [['pembayaran_id_booking'], 'exist', 'skipOnError' => true, 'targetClass' => Booking::className(), 'targetAttribute' => ['pembayaran_id_booking' => 'booking_id']],
         ];
     }
