@@ -9,7 +9,7 @@
                 <!-- <img src="<?php //$directoryAsset ?>/image/avatar.png" class="img-circle" alt="User Image"/> -->
             </div>
             <div class="pull-left info">
-                <p>Vandaru</p>
+                <p>Vandaroe</p>
 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -36,6 +36,7 @@
                     ['label' => 'Content', 'icon' => 'file', 'url' => ['/content']],
                     ['label' => 'Gallery', 'icon' => 'photo', 'url' => ['/galeri']],
                     ['label' => 'Booking', 'icon' => 'calendar', 'url' => ['/booking']],
+                    ['label' => 'Pembayaran', 'icon' => 'usd', 'url' => ['/pembayaran']],
                     ['label' => 'Data Master', 'options' => ['class' => 'header']],
                     // ['label' => 'Data Kamar', 'icon' => 'bed', 'url' => ['/kamar']],
                     [
@@ -48,6 +49,8 @@
                             ['label' => 'Fasilitas', 'icon' => 'circle-o', 'url' => ['/fasilitas'],],
                        ],
                     ],
+                    ['label' => 'Report', 'options' => ['class' => 'header']],
+                    ['label' => 'Report', 'icon' => 'list-alt', 'url' => ['/report']],
                     ['label' => 'Configuration', 'options' => ['class' => 'header']],
                     ['label' => 'Users', 'icon' => 'users', 'url' => ['/user']],
                     ['label' => 'Settings', 'icon' => 'gear', 'url' => ['/setting']],
@@ -97,6 +100,7 @@
                     ['label' => 'Content', 'icon' => 'file', 'url' => ['/content']],
                     ['label' => 'Gallery', 'icon' => 'photo', 'url' => ['/galeri']],
                     ['label' => 'Booking', 'icon' => 'calendar', 'url' => ['/booking']],
+                    ['label' => 'Pembayaran', 'icon' => 'usd', 'url' => ['/pembayaran']],
                     ['label' => 'Data Master', 'options' => ['class' => 'header']],
                     // ['label' => 'Data Kamar', 'icon' => 'bed', 'url' => ['/kamar']],
                     [

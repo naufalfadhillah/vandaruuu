@@ -66,7 +66,7 @@ class PembayaranController extends Controller
             $pemesanan = Booking::findOne($pembayaran['pembayaran_id_booking']);
             $pelanggan = Pelanggan::findOne($pemesanan['booking_id_pelanggan']);
             $kamar = explode(",",$pemesanan['booking_id_kamar']);
-            $pembayaran->status = "sudah";
+            $pembayaran->status = "Belum";
 
             
             if($pembayaran->validate()){

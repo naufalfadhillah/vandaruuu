@@ -27,7 +27,7 @@ use yii\helpers\Url;
                         <span class="icon-bar"></span>
                     </button>
                     <a href="index.html" class="logo">
-                        <img src="img/logos/white-logo.png" alt="logo">
+                        <img src="img/vandaru.png" alt="logo">
                     </a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->

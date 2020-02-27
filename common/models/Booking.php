@@ -53,7 +53,7 @@ class Booking extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'booking_id' => 'Booking ID',
+            'booking_id' => 'Kode Booking',
             'booking_id_pelanggan' => 'Pelanggan',
             'booking_id_kamar' => 'Kamar',
             'booking_durasi' => 'Durasi Booking',

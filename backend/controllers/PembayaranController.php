@@ -2,6 +2,9 @@
 
 namespace backend\controllers;
 
+use common\models\Booking;
+use common\models\Kamar;
+use common\models\Pelanggan;
 use Yii;
 use common\models\Pembayaran;
 use common\models\PembayaranSearch;
@@ -37,7 +40,7 @@ class PembayaranController extends Controller
     {
         $searchModel = new PembayaranSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $dataProvider->query->andWhere(['status' => 'Belum']);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -52,8 +55,31 @@ class PembayaranController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        // $searchModel = new PelangganSearch();
+        // $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        // $dataProvider->query->andWhere(['pelanggan_id' => $model->booking_id_pelanggan]);
+        $model2 = Booking::findOne($model->pembayaran_id_booking);
+        $model4 = Pelanggan::findOne($model2->booking_id_pelanggan);
+
+        $uu=$model2->booking_id_kamar;
+        $ccd=explode(",",$uu);
+        $n = count($ccd);
+        // $i = 0;
+        $model3 = array();
+
+        for ($i= 0; $i < $n ; $i++) {
+            $model3 [$i]= array(Kamar::findOne($ccd[$i]));
+        }
+        // print_r($model3);
+        // exit();
+        // print_r($model2);
+        // exit();
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'model2' => $model2,
+            'model3' => $model3,
+            'model4' => $model4,
         ]);
     }
 
@@ -93,6 +119,35 @@ class PembayaranController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
+    }
+
+
+    public function actionApprove($id)
+    {
+        $model = $this->findModel($id);
+
+        $model->status = 'Sudah';
+        $model->save();
+        return $this->redirect(['index']);
+
+        // return $this->render('update', [
+        //     'model' => $model,
+        // ]);
+    }
+
+    public function actionDecline($id)
+    {
+        $model = $this->findModel($id);
+
+        
+        $model->status = 'Sudah';
+        $model->save();
+        return $this->redirect(['index']);
+        
+
+        // return $this->render('update', [
+        //     'model' => $model,
+        // ]);
     }
 
     /**

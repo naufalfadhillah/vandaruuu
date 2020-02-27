@@ -25,7 +25,7 @@ $model2 = FotoGaleri::find()->all();
                     <div class="main-title-2">
                             <h1>Lokasi</h1>
                         </div>
-                        <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.0867115044193!2d110.33844931477326!3d-6.999069994944016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708aa29cbb7bcf%3A0x79425c4d29c9c5af!2sRumah%20Vandaroe%20Penginapan%20Harian%2CMingguan%20-%20Kost%20%26%20Paviliun%20Bulanan!5e0!3m2!1sid!2sid!4v1582559113564!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.0867115044193!2d110.33844931477326!3d-6.999069994944016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708aa29cbb7bcf%3A0x79425c4d29c9c5af!2sRumah%20Vandaroe%20Penginapan%20Harian%2CMingguan%20-%20Kost%20%26%20Paviliun%20Bulanan!5e0!3m2!1sid!2sid!4v1582559113564!5m2!1sid!2sid" width="500" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
 
                     </div>
